@@ -9,4 +9,5 @@ python3 main.py -dataset 'FB15k-237' \
                 -seq_dropout 0.2 \
                 -num_beams 40 \
                 -eval_tgt_max_length 30 \
-                -skip_n_val_epoch 20
+                -skip_n_val_epoch 20 \
+                -gpu 1

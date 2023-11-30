@@ -9,4 +9,4 @@ python3 main.py -dataset 'NELL' \
                 -num_beams 40 \
                 -eval_tgt_max_length 25 \
                 -skip_n_val_epoch 15 \
-                -gpu 4
+                -gpu 3

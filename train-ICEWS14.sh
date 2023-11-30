@@ -11,4 +11,4 @@ python3 main.py -dataset 'ICEWS14' \
                 -num_beams 40 \
                 -eval_tgt_max_length 26 \
                 -skip_n_val_epoch 50 \
-                -gpu 3
+                -gpu 2

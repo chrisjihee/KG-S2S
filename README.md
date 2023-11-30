@@ -100,7 +100,7 @@ The results are:
                   -num_beams 40 \
                   -eval_tgt_max_length 30 \
                   -model_path path/to/trained/model \
-                  -use_prefix_search  
+                  -use_prefix_search
   ```
   ##### FB15k-237
   ```shell
@@ -126,21 +126,21 @@ The results are:
                   -num_beams 40 \
                   -eval_tgt_max_length 30 \
                   -model_path path/to/trained/model \
-                  -use_prefix_search 
+                  -use_prefix_search
   ```
 
   ##### ICEWS14
   ```shell
   python3 main.py -dataset 'ICEWS14' \
                   -lr 0.0005 \
-                  -epoch 100
+                  -epoch 100 \
                   -batch_size 32 \
                   -src_descrip_max_length 40 \
                   -tgt_descrip_max_length 40 \
-                  -temporal  \
+                  -temporal \
                   -use_soft_prompt \
                   -use_rel_prompt_emb \
-                  -seq_dropout 0.1 \ 
+                  -seq_dropout 0.1 \
                   -num_beams 40 \
                   -eval_tgt_max_length 26 \
                   -skip_n_val_epoch 50
@@ -155,7 +155,7 @@ The results are:
                   -num_beams 40 \
                   -eval_tgt_max_length 26 \
                   -model_path path/to/trained/model \
-                  -use_prefix_search  
+                  -use_prefix_search
   ```
   
   ##### NELL-One
@@ -182,7 +182,7 @@ The results are:
                   -num_beams 40 \
                   -eval_tgt_max_length 25 \
                   -model_path path/to/trained/model \
-                  -use_prefix_search  
+                  -use_prefix_search
   ```
   - `-batch_size` denotes the training batch size
   - `-src_descrip_max_length` denotes the maximum description length for source entity during training 

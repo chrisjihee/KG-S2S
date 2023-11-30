@@ -1,11 +1,11 @@
 --extra-index-url https://download.pytorch.org/whl/cu115
 torch==1.11.0
 transformers==4.16.2
-numpy==1.17.2
-pandas==1.2.4
+pytorch_lightning==1.5.3
+numpy
+scipy
+pandas
 dataclasses==0.6
 tqdm==4.61.2
-scipy==1.4.1
 pygtrie==2.4.2
-pytorch_lightning==1.5.3
 sentencepiece

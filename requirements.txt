@@ -1,6 +1,7 @@
+--extra-index-url https://download.pytorch.org/whl/cu115
 torch==1.11.0
 transformers==4.16.2
-numpy==1.16.5
+numpy==1.17.2
 pandas==1.2.4
 dataclasses==0.6
 tqdm==4.61.2

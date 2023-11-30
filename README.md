@@ -63,7 +63,7 @@ The results are:
                   -seq_dropout 0.1 \
                   -num_beams 40 \
                   -eval_tgt_max_length 30 \
-                  -skip_n_val_epoch 30 \
+                  -skip_n_val_epoch 30
   
   # evaluation commandline:
   python3 main.py -dataset 'WN18RR' \
@@ -184,7 +184,7 @@ The results are:
                   -model_path path/to/trained/model \
                   -use_prefix_search  
   ```
-  - `-src_descrip_max_length` denotes the training batch size
+  - `-batch_size` denotes the training batch size
   - `-src_descrip_max_length` denotes the maximum description length for source entity during training 
   - `-tgt_descrip_max_length` denotes the maximum description length for target entity during training
   - `-eval_tgt_max_length` denotes the maximum description length for generation during inference  

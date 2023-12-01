@@ -81,11 +81,18 @@ def main():
     )
     printing_callback = PrintingCallback()
 
-    gpu = [int(configs.gpu)] if torch.cuda.is_available() else 0
+    accelerator = 'gpu' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'auto'
+    devices = [int(configs.gpu)] if torch.cuda.is_available() else 'auto'
+    print()
+    print("----------------------------------------------------------------------------------")
+    print(f" * pl.Trainer(accelerator={accelerator}, devices={devices})")
+    print("----------------------------------------------------------------------------------")
+    print()
     trainer_params = {
-        'gpus': gpu,
+        'accelerator': accelerator,
+        'devices': devices,
         'max_epochs': configs.epochs,  # 1000
-        'checkpoint_callback': True,  # True
+        # 'checkpoint_callback': True,  # True
         'logger': False,  # TensorBoardLogger
         'num_sanity_val_steps': 0,  # 2
         'check_val_every_n_epoch': 3,

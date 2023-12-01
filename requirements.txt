@@ -1,8 +1,8 @@
---extra-index-url https://download.pytorch.org/whl/cu115
-torch==1.11.0
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch>=2.1.0
 transformers==4.16.2
-pytorch_lightning==1.5.3
-numpy
+pytorch_lightning<2.0.0
+numpy<1.24.0
 scipy
 pandas
 dataclasses==0.6

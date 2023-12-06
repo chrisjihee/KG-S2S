@@ -1,0 +1,30 @@
+(KG-S2S) chrisjihee@dgx-a100:~/proj/KG-S2S$ bash test-FB15k-237N.sh
+Namespace(batch_size=64, dataset='FB15k-237N', dataset_path='./data/processed', decoder='beam_search', diversity_penalty=0.0, epochs=500, eval_tgt_max_length=30, gpu='6', log_text=False, lr=0.001, model='T5Finetuner', model_dim=768, model_path='checkpoint/FB15k-237N-2023-12-01 00:47:25.667747/FB15k-237N-epoch=032-val_mrr=0.3419.ckpt', n_ent=14541, n_rel=93, num_beam_groups=1, num_beams=40, num_workers=4, optim='Adam', pretrained_model='t5-base', save_dir='./checkpoint/FB15k-237N-2023-12-01 09:09:14.414357', seed=41504, seq_dropout=0.0, skip_n_val_epoch=0, src_descrip_max_length=80, src_max_length=512, temporal=False, tgt_descrip_max_length=80, train_tgt_max_length=512, use_prefix_search=True, use_rel_prompt_emb=True, use_soft_prompt=True, val_batch_size=8, vocab_size=32128)
+Global seed set to 41504
+tokenizing entities...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 14541/14541 [01:27<00:00, 166.02it/s]
+datamodule construction done.
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+model_path: checkpoint/FB15k-237N-2023-12-01 00:47:25.667747/FB15k-237N-epoch=032-val_mrr=0.3419.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3,4,5,6,7]
+Testing: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2058/2058 [4:00:59<00:00, 11.91s/it]                   mrr           mr   hit@1   hit@3  hit@10
+tail ranking  0.504337  1786.556163  42.07%  55.43%  66.59%
+head ranking  0.201147  4188.243618  14.38%  22.23%  32.04%
+mean ranking  0.352742  2987.399891  28.23%  38.83%  49.32%
+--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'val_mrr': 0.35274168848991394}
+--------------------------------------------------------------------------------
+DATALOADER:1 TEST RESULTS
+{'val_mrr': 0.35274168848991394}
+--------------------------------------------------------------------------------
+
+==================================================
+Epoch: test
+Ellipsis
+==================================================
+Testing: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2058/2058 [4:00:59<00:00,  7.03s/it]
+(KG-S2S) chrisjihee@dgx-a100:~/proj/KG-S2S$ 
+

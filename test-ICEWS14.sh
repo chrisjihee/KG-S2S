@@ -6,5 +6,6 @@ python3 main.py -dataset 'ICEWS14' \
                 -use_rel_prompt_emb \
                 -num_beams 40 \
                 -eval_tgt_max_length 26 \
-                -model_path path/to/trained/model \
-                -use_prefix_search
+                -model_path "checkpoint/ICEWS14-2023-12-01 00:47:31.860961/ICEWS14-epoch=050-val_mrr=0.5949.ckpt" \
+                -use_prefix_search \
+                -gpu 7

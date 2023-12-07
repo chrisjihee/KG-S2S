@@ -9,5 +9,5 @@ python3 main.py -dataset NELL \
                 -use_rel_prompt_emb \
                 -num_beams 40 \
                 -eval_tgt_max_length 25 \
-                -skip_n_val_epoch 15 \
+                -skip_n_val_epoch 0 \
                 -gpu 3

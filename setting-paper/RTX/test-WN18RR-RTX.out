@@ -1,0 +1,36 @@
+(KG-S2S) chris@chris137:/dat/proj/KG-S2S$ bash setting-paper/test-WN18RR-3.sh
+Namespace(batch_size=64, dataset='WN18RR', dataset_path='./data/processed', decoder='beam_search', diversity_penalty=0.0, epochs=500, eval_tgt_max_length=30, gpu='0', log_text=False, lr=0.001, model='T5Finetuner', model_dim=768, model_path='checkpoint/WN18RR-2023-12-01 00:58:00.436427/WN18RR-epoch=095-val_mrr=0.5774.ckpt', n_ent=40943, n_rel=11, num_beam_groups=1, num_beams=40, num_workers=4, optim='Adam', pretrained_model='t5-base', save_dir='./checkpoint/WN18RR-2023-12-07 10:15:05.771267', seed=41504, seq_dropout=0.0, skip_n_val_epoch=0, src_descrip_max_length=40, src_max_length=512, temporal=False, tgt_descrip_max_length=10, train_tgt_max_length=512, use_prefix_search=True, use_rel_prompt_emb=True, use_soft_prompt=True, val_batch_size=8, vocab_size=32128)
+Global seed set to 41504
+tokenizing entities...
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 40943/40943 [01:47<00:00, 381.66it/s]
+datamodule construction done.
+
+----------------------------------------------------------------------------------
+ * pl.Trainer(accelerator=gpu, devices=[0])
+----------------------------------------------------------------------------------
+
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+model_path: checkpoint/WN18RR-2023-12-01 00:58:00.436427/WN18RR-epoch=095-val_mrr=0.5774.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+Testing: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 784/784 [47:09<00:00,  3.56s/it]
+                   mrr           mr   hit@1   hit@3  hit@10
+tail ranking  0.679869  3043.948309  62.35%  71.76%  78.14%
+head ranking  0.474519  8027.086152  43.97%  48.98%  54.08%
+mean ranking  0.577194  5535.517230  53.16%  60.37%  66.11%
+--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'val_mrr': 0.577194094657898}
+--------------------------------------------------------------------------------
+DATALOADER:1 TEST RESULTS
+{'val_mrr': 0.577194094657898}
+--------------------------------------------------------------------------------
+
+==================================================
+Epoch: test
+Ellipsis
+==================================================
+Testing: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 784/784 [47:09<00:00,  3.61s/it]
+(KG-S2S) chris@chris137:/dat/proj/KG-S2S$ 
+

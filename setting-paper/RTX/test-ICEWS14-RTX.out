@@ -1,0 +1,36 @@
+(KG-S2S) chris@chris137:/dat/proj/KG-S2S$ bash setting-paper/test-ICEWS14-3.sh
+Namespace(batch_size=64, dataset='ICEWS14', dataset_path='./data/processed', decoder='beam_search', diversity_penalty=0.0, epochs=500, eval_tgt_max_length=26, gpu='2', log_text=False, lr=0.001, model='T5Finetuner', model_dim=768, model_path='checkpoint/ICEWS14-2023-12-01 00:58:52.211480/ICEWS14-epoch=053-val_mrr=0.6039.ckpt', n_ent=7128, n_rel=230, num_beam_groups=1, num_beams=40, num_workers=4, optim='Adam', pretrained_model='t5-base', save_dir='./checkpoint/ICEWS14-2023-12-06 17:46:20.584438', seed=41504, seq_dropout=0.0, skip_n_val_epoch=0, src_descrip_max_length=40, src_max_length=512, temporal=True, tgt_descrip_max_length=40, train_tgt_max_length=512, use_prefix_search=True, use_rel_prompt_emb=True, use_soft_prompt=True, val_batch_size=8, vocab_size=32128)
+Global seed set to 41504
+tokenizing entities...
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 7128/7128 [00:08<00:00, 822.39it/s]
+datamodule construction done.
+
+----------------------------------------------------------------------------------
+ * pl.Trainer(accelerator=gpu, devices=[2])
+----------------------------------------------------------------------------------
+
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+model_path: checkpoint/ICEWS14-2023-12-01 00:58:52.211480/ICEWS14-epoch=053-val_mrr=0.6039.ckpt
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+Testing:   8%|█████████████████████▌                                                                                                                                                                                                                                             | 187/2242 [16:27<3:39:01Testing:   8%|████████▏                                                                                         | 188/2242 [16:34<3:39:07,  6.40s/it]                                                                                                                                                     Testing:   8%|████████Testing:   8%|█████████████████████▊                                                                                                                                                                                                                                            | 190/2242 [16:47<3:38:42,  6.40s/it]
+Testing: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2242/2242 [3:36:26<00:00,  1.92s/it]                   mrr          mr   hit@1   hit@3  hit@10
+tail ranking  0.613178  512.762803  53.60%  66.21%  75.03%
+head ranking  0.581196  594.861542  50.23%  62.64%  72.91%
+mean ranking  0.597187  553.812172  51.91%  64.42%  73.97%
+--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{'val_mrr': 0.5971869230270386}
+--------------------------------------------------------------------------------
+DATALOADER:1 TEST RESULTS
+{'val_mrr': 0.5971869230270386}
+--------------------------------------------------------------------------------
+
+==================================================
+Epoch: test
+Ellipsis
+==================================================
+Testing: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2242/2242 [3:36:26<00:00,  5.79s/it]
+(KG-S2S) chris@chris137:/dat/proj/KG-S2S$ 
+

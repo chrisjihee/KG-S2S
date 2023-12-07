@@ -1,0 +1,501 @@
+500
+male : Noah | male : Shem | parent of person
+male : Enosh | male : Cainan | parent of person
+person : Dionysos | female : Hermes | parent of person
+person : Center | person : Jesus | parent of person
+male : Heavenly Father | male : Jesus Christ | parent of person
+male : Heavenly Father | person : Lord | parent of person
+male : Heavenly Father | person : Jesus | parent of person
+male : Heavenly Father | person : Son | parent of person
+male : Cain | male : Enoch | parent of person
+person : Mother001 | male : Jesus Christ | parent of person
+person : Mother001 | athlete : Lt's Joseph R's Hunt | parent of person
+person : Mother001 | person : Holy Trinity | parent of person
+person : Mother001 | person : Child | parent of person
+person : Mother001 | person : Lord | parent of person
+person : Mother001 | person : Blessed Sacrament | parent of person
+person : Mother001 | person : Jesus | parent of person
+person : Mother001 | person : Master | parent of person
+person : Mother001 | person : Lord Jesus | parent of person
+person : Mother001 | person : Son | parent of person
+person : Mother001 | person : Cross | parent of person
+person : Mother001 | female : Mary | parent of person
+criminal : Jesse | person : David | parent of person
+person : Image | person : Jesus | parent of person
+person : True God and True Man | person : Jesus | parent of person
+male : Uranus | person : Saturn | parent of person
+female : Blessed Virgin Mary | person : Jesus | parent of person
+person : True Lord | person : Jesus | parent of person
+male : Mahalaleel | person : Jared001 | parent of person
+male : Arphaxad | male : Cainan | parent of person
+person : Guide | person : Jesus | parent of person
+person europe : Author | person : Jesus | parent of person
+person : Great | person : Jesus | parent of person
+person : May God | male : Jesus Christ | parent of person
+female : Faith | person : Jesus | parent of person
+person : One Person | person : Jesus | parent of person
+male : Laban | male : Jacob | parent of person
+male : Laban | person : Leah | parent of person
+female : the Virgin | person : Jesus | parent of person
+person : True God | male : Jesus Christ | parent of person
+person : True God | person south america : Jesus | parent of person
+female : Mother Mary | male : Jesus Christ | parent of person
+female : Mother Mary | person : Jesus | parent of person
+female : Mother Mary | person : Lord Jesus | parent of person
+person : Peter | person : John002 | parent of person
+person : Peter | person : John the Baptist | parent of person
+person : News | person south america : Jesus | parent of person
+male : Yahweh | male : Yahshua | parent of person
+male : Yahweh | person : Jesus | parent of person
+person : Master | person : Christ Jesus | parent of person
+person : Life | male : Jesus Christ | parent of person
+person : Life | person : Christ Jesus | parent of person
+person : Life | person : Jesus | parent of person
+person : Life | person : Lord Jesus | parent of person
+person : Life | person : Eden | parent of person
+person : Lion | person : Jesus | parent of person
+person : Lord | person south america : Jesus | parent of person
+person : Lord | person : Christ Jesus | parent of person
+person : Lord | male : Yeshua | parent of person
+person : Lord | person south america : Real Jesus | parent of person
+person : Lord | person south america : Jesus | parent of person
+person : Lord | person : Eden | parent of person
+person : Miley Cyrus | person : Billy Ray Cyrus | parent of person
+person : Pandu | person : Arjuna | parent of person
+person : Hero | person : Jesus | parent of person
+person : Christian | male : Jesus Christ | parent of person
+person : Christian | person : Jesus | parent of person
+person : Pattern | person : Jesus | parent of person
+person : Adam | male : Seth | parent of person
+person : Adam | male : Noah | parent of person
+person : Adam | person : Garden of Eden | parent of person
+person : Adam | person : Garden | parent of person
+person : Adam | person : Eden | parent of person
+person : Adam | male : Cain | parent of person
+person : Eve001 | female : Man | parent of person
+person : Eve001 | person : Garden of Eden | parent of person
+person : Eve001 | person : Sin | parent of person
+person : Eve001 | person : Creation | parent of person
+person : Eve001 | person : Garden | parent of person
+person : Eve001 | person : Eden | parent of person
+person : Eve001 | person : Life | parent of person
+person : Eve001 | male : Cain | parent of person
+person : Friend | person : Jesus | parent of person
+person europe : Father | male : Jesus Christ | parent of person
+person europe : Father | male : Yeshua | parent of person
+person europe : Father | person : Saviour | parent of person
+person europe : Father | person : Christ Jesus | parent of person
+person europe : Father | male : Yahshua | parent of person
+person europe : Father | person : Lord | parent of person
+person europe : Father | person : Master | parent of person
+person europe : Father | person : Lord Jesus | parent of person
+person europe : Father | person south america : Jesus | parent of person
+person europe : Father | person : Son | parent of person
+person europe : Father | person : Savior | parent of person
+person europe : Father | female : Mary | parent of person
+male : Terah | male : Abram | parent of person
+male : Terah | male : Abraham | parent of person
+person : Shepherd | person : Lord Jesus | parent of person
+person : Shepherd | person south america : Jesus | parent of person
+person : Hannah | person : Samuel001 | parent of person
+person : Wife Eve | person : Eden | parent of person
+person : Creator | male : Jesus Christ | parent of person
+person : Creator | person : Lord Jesus | parent of person
+person : Creator | person south america : Jesus | parent of person
+person : Creator | person : Son | parent of person
+person : Arjuna | female : Kunti | parent of person
+male : Abraham | male : Isaac | parent of person
+male : Abraham | male : Noah | parent of person
+male : Abraham | person : Ishmael | parent of person
+male : Abraham | person : Jesus | parent of person
+male : Abraham | male : Jacob | parent of person
+male : Abraham | person : Isaac | parent of person
+person : Begotten Son | person : Lord Jesus | parent of person
+person : Begotten Son | person south america : Jesus | parent of person
+male : Serug | male : Nahor | parent of person
+monarch : Vespasian | monarch : Titus | parent of person
+male : Jacob | male : Isaac | parent of person
+male : Jacob | male : Laban | parent of person
+male : Jacob | athlete : Lt's Joseph R's Hunt | parent of person
+male : Jacob | person : Lord | parent of person
+person : Holy Ghost | male : Jesus Christ | parent of person
+person : Holy Ghost | person : Lord | parent of person
+person : Holy Ghost | person : Lord Jesus | parent of person
+person : Holy Ghost | person south america : Jesus | parent of person
+person : Holy Ghost | person : Son | parent of person
+male : Salah | male : Eber | parent of person
+person : Sacrifice | person south america : Jesus | parent of person
+person : Buddha001 | person : Jesus | parent of person
+male : Isaac | male : Jacob | parent of person
+athlete : Michael | person : Jesus | parent of person
+female : Blessed Virgin | coach : New Orleans Saints | parent of person
+female : Blessed Virgin | person : Jesus | parent of person
+female : Mary | person : Saviour | parent of person
+female : Mary | male : Jesus Christ | parent of person
+female : Mary | person europe : Infant | parent of person
+female : Mary | coach : New Orleans Saints | parent of person
+female : Mary | person : Child | parent of person
+female : Mary | person : Lord | parent of person
+female : Mary | person : Jesus | parent of person
+female : Mary | person : Baby | parent of person
+female : Mary | person : Lord Jesus | parent of person
+female : Mary | person : Savior | parent of person
+female : Mary | person europe : Father | parent of person
+female : Mary | person : James003 | parent of person
+person : Christians | person : Jesus | parent of person
+person : David | person : Solomon | parent of person
+person : Husband | person : Jesus | parent of person
+female : Virgin | male : Jesus Christ | parent of person
+female : Virgin | person : Christ Child | parent of person
+female : Virgin | female : Angels | parent of person
+female : Virgin | coach : New Orleans Saints | parent of person
+female : Virgin | person : Lord | parent of person
+female : Virgin | person : Jesus | parent of person
+female : Virgin | person : Lord Jesus | parent of person
+female : Blessed Mother | person : Jesus | parent of person
+male : Lamech | male : Noah Five Hundred | parent of person
+female : Holy Mother | person : Jesus | parent of person
+person : Jared001 | male : Enoch | parent of person
+person : Jared001 | male : Enoch Eight Hundred Years | parent of person
+monarch : God the Father | male : Jesus Christ | parent of person
+monarch : God the Father | person south america : Jesus | parent of person
+monarch : God the Father | person : Son | parent of person
+person : Cross | male : Jesus Christ | parent of person
+person : Christopher001 | person : Jesus | parent of person
+person : Shepard | person : Jesus | parent of person
+person us : Julia Roberts | person : Henry Daniel Moder | parent of person
+person us : Julia Roberts | person : Phinneaus Walter Moder | parent of person
+person : Son | male : Yeshua | parent of person
+person : Son | person : Jesus | parent of person
+person : Son | female : Mary | parent of person
+person : Jew | person : Jesus | parent of person
+person : Child | person : Jesus | parent of person
+writer : King | person south america : Son Jesus | parent of person
+person : Example | person : Jesus | parent of person
+male : King David | person : Jesus | parent of person
+politician us : Grace | male : Jesus Christ | parent of person
+politician us : Grace | person : Jesus | parent of person
+person : Saviour | person : Jesus | parent of person
+person : Saviour | person europe : Father | parent of person
+person : Second Person | person : Jesus | parent of person
+person : John the Baptist | person : Lord Jesus | parent of person
+person : Catholic | person : Jesus | parent of person
+person : Savior | person : Christ Jesus | parent of person
+person : Savior | male : Yeshua | parent of person
+person : Savior | person south america : Jesus | parent of person
+person : Savior | person : Accept Jesus Christ | parent of person
+person : Savior | male : Yahshua | parent of person
+person : Savior | person south america : Biblical Jesus | parent of person
+person : Savior | person south america : Son Jesus | parent of person
+person : Savior | person : Begotten Son | parent of person
+person : Savior | person : Lord Jesus | parent of person
+person : Savior | person south america : Jesus | parent of person
+person : Savior | person europe : Father | parent of person
+person : Savior | person : God Jesus | parent of person
+person : Savior | scientist : Jesuschrist | parent of person
+person : Saturn | male : Uranus | parent of person
+person : Billy Ray Cyrus | person : Miley Cyrus | parent of person
+female : Man | male : Jesus Christ | parent of person
+female : Man | person : Jesus | parent of person
+female : Man | person : Lord Jesus | parent of person
+female : Man | person : Eden | parent of person
+female : Hermes | person : Dionysos | parent of person
+politician us : Rachel | person : Joseph | parent of person
+person : Tamar | person : Perez | parent of person
+male : Israel | male : Jesus Christ | parent of person
+male : Israel | male : Yeshua | parent of person
+male : Zechariah | person : John the Baptist | parent of person
+person : Alpha | person : Jesus | parent of person
+female : Virgin Mary | male : Jesus Christ | parent of person
+female : Virgin Mary | person : Lord | parent of person
+female : Virgin Mary | person : Jesus | parent of person
+female : Virgin Mary | person : Son | parent of person
+male : Zeus | male : Apollo | parent of person
+male : Sun | person : Jesus | parent of person
+male : Shem | male : Arphaxad | parent of person
+person europe : St Joseph | person : Jesus | parent of person
+person : Jesus | female : Blessed Mother | parent of person
+person : Jesus | person : Anthony001 | parent of person
+government organization : U S's House | politician us : John Boehner | political group of politician us
+government organization : U S's House | politician us : Nancy Pelosi | political group of politician us
+government organization : U S's House | politician us : Tom Delay | political group of politician us
+political party : Assembly | politician us : Bills | political group of politician us
+political party : Assembly | politician us : Bill | political group of politician us
+government organization : Senate | politician us : Bob Dole | political group of politician us
+government organization : Senate | politician us : Arlen Specter | political group of politician us
+government organization : Senate | politician us : Tom Daschle | political group of politician us
+government organization : Senate | politician us : Nancy Pelosi | political group of politician us
+government organization : Senate | politician us : Mitch Mcconnell | political group of politician us
+government organization : Senate | politician us : Harry Reid | political group of politician us
+government organization : Senate | politician us : Lyndon B's Johnson | political group of politician us
+government organization : House | politician us : Calvin Coolidge | political group of politician us
+government organization : House | politician us : Barack Obama | political group of politician us
+government organization : House | astronaut : Herbert Hoover | political group of politician us
+government organization : House | politician us : Jimmy Carter | political group of politician us
+government organization : House | politician us : Palin | political group of politician us
+government organization : House | politician us : Democrat Bill Clinton | political group of politician us
+government organization : House | politician us : Grover Cleveland | political group of politician us
+government organization : House | politician us : Mark Green | political group of politician us
+government organization : House | politician us : Nancy Pelosi | political group of politician us
+government organization : House | politician us : Bush | political group of politician us
+government organization : House | politician us : Harry Truman | political group of politician us
+government organization : House | politician us : John Kerry | political group of politician us
+government organization : House | politician us : Dwight Eisenhower | political group of politician us
+government organization : House | politician us : President Elect Barack Obama | political group of politician us
+government organization : House | politician us : Mitt Romney | political group of politician us
+government organization : House | politician us : Bill | political group of politician us
+government organization : House | politician us : Gephardt | political group of politician us
+government organization : House | politician us : Democrat Barack Obama | political group of politician us
+government organization : House | politician us : George Mcgovern | political group of politician us
+government organization : House | politician us : Rahm Emanuel | political group of politician us
+government organization : House | politician us : President George W Bush | political group of politician us
+government organization : House | politician us : John Boehner | political group of politician us
+government organization : House | politician us : President Bush | political group of politician us
+government organization : House | politician us : John Conyers | political group of politician us
+government organization : House | politician us : Bill Clinton | political group of politician us
+government organization : House | politician us : Santorum | political group of politician us
+government organization : House | person : Gingrich | political group of politician us
+government organization : House | politician us : Cynthia Mckinney | political group of politician us
+government organization : House | female : Hillary | political group of politician us
+government organization : House | politician us : Richard Nixon | political group of politician us
+government organization : House | politician us : George W Bush | political group of politician us
+government organization : House | politician us : Karl Rove | political group of politician us
+government organization : House | politician : George W | political group of politician us
+government organization : House | politician us : Dick Armey | political group of politician us
+government organization : House | politician us : Dick Gephardt | political group of politician us
+government organization : House | politician us : Billy Tauzin | political group of politician us
+government organization : House | politician us : John Murtha | political group of politician us
+government organization : House | politician us : Michelle Obama | political group of politician us
+government organization : House | politician us : John A's Boehner | political group of politician us
+government organization : House | politician us : John Kasich | political group of politician us
+government organization : House | politician us : George H W's Bush | political group of politician us
+government organization : House | politician us : Tom Delay | political group of politician us
+government organization : House | politician us : Andrew Jackson | political group of politician us
+government organization : House | politician us : Sherrod Brown | political group of politician us
+government organization : House | politician us : Sen's Barack Obama | political group of politician us
+government organization : House | politician us : Newt Gingrich | political group of politician us
+government organization : House | politician us : Gore | political group of politician us
+government organization : House | politician us : Senator Obama | political group of politician us
+government organization : House | politician us : Al Gore | political group of politician us
+government organization : House | politician us : President Obama | political group of politician us
+government organization : House | politician us : Time Bill Clinton | political group of politician us
+government organization : House | politician us : George W's Bush | political group of politician us
+government organization : House | male : Gerald Ford | political group of politician us
+government organization : House | politician us : Pawlenty | political group of politician us
+government organization : House | politician us : President George Bush | political group of politician us
+government organization : House | politician us : John Mccain | political group of politician us
+government organization : House | politician us : Laura Bush | political group of politician us
+government organization : House | politician us : Ronald Reagan | political group of politician us
+government organization : House | politician us : John Edwards | political group of politician us
+government organization : U S's Senate | politician us : Bill | political group of politician us
+government organization : U S's Senate | politician us : John Mccain | political group of politician us
+government organization : U S's Senate | politician us : Harry Reid | political group of politician us
+government organization : U S's House of Representatives | politician us : Nancy Pelosi | political group of politician us
+government organization : U S's House of Representatives | politician us : Barney Frank | political group of politician us
+bank : Deutsche Bank | country : India | bank bank in country
+bank : Wells Fargo | country : America | bank bank in country
+bank : Abn Amro | country : Netherlands | bank bank in country
+bank : Abn Amro | country : India | bank bank in country
+bank : Citigroup | country : Uk | bank bank in country
+bank : Citigroup | country : America | bank bank in country
+bank : Citigroup | country : 's America | bank bank in country
+bank : Citigroup | geopolitical organization : America | bank bank in country
+bank : Fidelity | country : India | bank bank in country
+bank : Deutsche | country : India | bank bank in country
+bank : J P's Morgan Securities Inc | country : America | bank bank in country
+bank : J P's Morgan Securities Inc | country : 's America | bank bank in country
+bank : J P's Morgan Securities Inc | geopolitical organization : America | bank bank in country
+bank : Barclays Capital | country : Uk | bank bank in country
+bank : J P's Morgan Securities | country : 's America | bank bank in country
+bank : J P's Morgan Securities | country : America | bank bank in country
+bank : J P's Morgan Securities | geopolitical organization : America | bank bank in country
+bank : Credit Suisse | country : Switzerland Switzerland | bank bank in country
+bank : Lloyds Tsb | country : Uk | bank bank in country
+bank : Commonwealth | country : South Africa | bank bank in country
+bank : Commonwealth | country : Canada | bank bank in country
+bank : Commonwealth | country : Nigeria | bank bank in country
+bank : Commonwealth | country : India | bank bank in country
+bank : Chase | country : 's America | bank bank in country
+bank : Chase | country : America | bank bank in country
+bank : Chase | geopolitical organization : America | bank bank in country
+bank : Citizens | country : Us | bank bank in country
+bank : Citizens | country : U S | bank bank in country
+bank : First Bank | country : South Africa | bank bank in country
+bank : First Bank | country : Nigeria | bank bank in country
+bank : Bnp Paribas | country : India | bank bank in country
+bank : Td | country : Canada | bank bank in country
+bank : Citibank | country : Belgium | bank bank in country
+bank : Citibank | country : Malaysia | bank bank in country
+bank : Citibank | country : Bahrain | bank bank in country
+bank : Citibank | country : Indonesia | bank bank in country
+bank : Citibank | country : Uk | bank bank in country
+bank : Citibank | country : the Philippines | bank bank in country
+bank : Citibank | country : Kenya | bank bank in country
+bank : Citibank | country : Hong Kong | bank bank in country
+bank : Citibank | country : Japan | bank bank in country
+bank : Citibank | country : Uae | bank bank in country
+bank : Citibank | country : Pakistan | bank bank in country
+bank : Citibank | country : Singapore | bank bank in country
+bank : Citibank | country : Greece | bank bank in country
+bank : Citibank | country : Thailand | bank bank in country
+bank : Citibank | country : Hungary | bank bank in country
+bank : Citibank | country : China | bank bank in country
+bank : Citibank | country : India | bank bank in country
+bank : Standard Chartered | country : Hong Kong | bank bank in country
+bank : Standard Chartered | country : China | bank bank in country
+bank : Standard Chartered | country : India | bank bank in country
+bank : Banamex | country : Mexico | bank bank in country
+bank : Lloyds | country : England | bank bank in country
+bank : Reliance | country : India | bank bank in country
+bank : Principal | country : India | bank bank in country
+bank : Morgan Stanley | country : India | bank bank in country
+bank : Citigroup Global Markets | country : Uk | bank bank in country
+bank : Citigroup Global Markets | country : America | bank bank in country
+bank : Citigroup Global Markets | country : 's America | bank bank in country
+bank : Citigroup Global Markets | geopolitical organization : America | bank bank in country
+bank : Royal | country : Belgium | bank bank in country
+bank : Royal | country : Ireland | bank bank in country
+bank : Royal | country : New Zealand | bank bank in country
+bank : Royal | country : Scotland | bank bank in country
+bank : Royal | country : Denmark | bank bank in country
+bank : Goldman Sachs | country : America | bank bank in country
+bank : World Bank | country : United States | bank bank in country
+bank : J P's Morgan | country : America | bank bank in country
+bank : J P's Morgan | country : 's America | bank bank in country
+bank : J P's Morgan | geopolitical organization : America | bank bank in country
+bank : Fortis | country : Belgium | bank bank in country
+bank : Jpmorgan | country : America | bank bank in country
+bank : Jpmorgan | country : 's America | bank bank in country
+bank : Jpmorgan | geopolitical organization : America | bank bank in country
+bank : Reliance Industries Limited | country : India | bank bank in country
+bank : Wachovia | country : America | bank bank in country
+bank : Wachovia | country : 's America | bank bank in country
+bank : Wachovia | geopolitical organization : America | bank bank in country
+bank : Federal Bank | country : India | bank bank in country
+bank : Bank America | country : India | bank bank in country
+bank : Visa | country : America | bank bank in country
+bank : Bank One | country : America | bank bank in country
+bank : Halifax | country : Scotland | bank bank in country
+bank : Hsbc | country : Oman | bank bank in country
+bank : Hsbc | country : Brunei | bank bank in country
+bank : Hsbc | country : Arabia Saudita | bank bank in country
+bank : Hsbc | country : Jordan | bank bank in country
+bank : Hsbc | country : Bahrain | bank bank in country
+bank : Hsbc | country : Usa | bank bank in country
+bank : Hsbc | country : Cayman Islands | bank bank in country
+bank : Hsbc | country : Uk | bank bank in country
+bank : Hsbc | country : Kuwait | bank bank in country
+bank : Hsbc | country : America | bank bank in country
+bank : Hsbc | country : Panama | bank bank in country
+bank : Hsbc | country : Japan | bank bank in country
+bank : Hsbc | country : Uae | bank bank in country
+bank : Hsbc | country : Pakistan | bank bank in country
+bank : Hsbc | country : Brazil | bank bank in country
+bank : Hsbc | country : Bermuda | bank bank in country
+bank : Hsbc | country : Singapore | bank bank in country
+bank : Hsbc | country : Sri Lanka | bank bank in country
+bank : Hsbc | country : Thailand | bank bank in country
+bank : Hsbc | country : Canada | bank bank in country
+bank : Hsbc | geopolitical location : Qatar | bank bank in country
+bank : Hsbc | country : Poland | bank bank in country
+bank : Hsbc | country : South Korea | bank bank in country
+bank : Hsbc | country : China | bank bank in country
+bank : Hsbc | country : India | bank bank in country
+bank : Rbc | country : Canada | bank bank in country
+bank : Rbs | country : Scotland | bank bank in country
+bank : Pnc | country : America | bank bank in country
+bank : Fed | country : Japan | bank bank in country
+bank : Anz | country : New Zealand | bank bank in country
+bank : Aig | country : America | bank bank in country
+bank : Citi | country : Uk | bank bank in country
+bank : Citi | country : America | bank bank in country
+bank : Citi | country : Canada | bank bank in country
+bank : Citi | country : India | bank bank in country
+bank : Cibc | country : Canada | bank bank in country
+bank : Axis | country : India | bank bank in country
+bank : Northern Rock | country : Uk | bank bank in country
+bank : Northern Rock | country : Britain | bank bank in country
+bank : Northern Rock | country : United Kingdom | bank bank in country
+bank : Northern Rock | country : England | bank bank in country
+geopolitical location : National | country : Turkey | bank bank in country
+geopolitical location : National | country : Angola | bank bank in country
+geopolitical location : National | country : Ghana | bank bank in country
+geopolitical location : National | country : Senegal | bank bank in country
+geopolitical location : National | country : Malta | bank bank in country
+geopolitical location : National | country : Greenland | bank bank in country
+geopolitical location : National | country : Ireland | bank bank in country
+geopolitical location : National | country : Panama | bank bank in country
+geopolitical location : National | country : Great Britain | bank bank in country
+geopolitical location : National | country : Indonesia | bank bank in country
+geopolitical location : National | country : Bulgaria | bank bank in country
+geopolitical location : National | country : Lithuania | bank bank in country
+geopolitical location : National | country : Latvia | bank bank in country
+geopolitical location : National | country : New Zealand | bank bank in country
+geopolitical location : National | country : Luxembourg | bank bank in country
+geopolitical location : National | country : Iraq | bank bank in country
+geopolitical location : National | country : Netherlands | bank bank in country
+geopolitical location : National | country : Nepal | bank bank in country
+geopolitical location : National | country : Laos People S Democratic Republic | bank bank in country
+geopolitical location : National | country : Armenia | bank bank in country
+geopolitical location : National | country : Uae | bank bank in country
+geopolitical location : National | country : Estonia | bank bank in country
+geopolitical location : National | country : Rwanda | bank bank in country
+geopolitical location : National | country : Bangladesh | bank bank in country
+geopolitical location : National | country : the Philippines | bank bank in country
+geopolitical location : National | country : Austria | bank bank in country
+geopolitical location : National | country : Soviet Union | bank bank in country
+geopolitical location : National | country : Maldives | bank bank in country
+geopolitical location : National | country : Kenya | bank bank in country
+geopolitical location : National | country : Swaziland | bank bank in country
+geopolitical location : National | country : Albania | bank bank in country
+geopolitical location : National | country : Gambia | bank bank in country
+geopolitical location : National | country : Japan | bank bank in country
+geopolitical location : National | country : Wales | bank bank in country
+geopolitical location : National | country : South Africa | bank bank in country
+geopolitical location : National | country : Argentina | bank bank in country
+geopolitical location : National | country : Thailand | bank bank in country
+geopolitical location : National | country : Democratic Republic of Congo | bank bank in country
+geopolitical location : National | country : Germany | bank bank in country
+geopolitical location : National | country : Spain | bank bank in country
+geopolitical location : National | country : Mozambique | bank bank in country
+geopolitical location : National | country : Sri Lanka | bank bank in country
+geopolitical location : National | country : Italy | bank bank in country
+geopolitical location : National | country : Portugal | bank bank in country
+geopolitical location : National | country : New South Wales | bank bank in country
+geopolitical location : National | country : Peru | bank bank in country
+geopolitical location : National | country : Mongolia | bank bank in country
+geopolitical location : National | country : Uganda | bank bank in country
+geopolitical location : National | country : Libya | bank bank in country
+geopolitical location : National | country : Greece | bank bank in country
+geopolitical location : National | country : People Republic | bank bank in country
+geopolitical location : National | country : Belize | bank bank in country
+geopolitical location : National | country : Bosnia Herzegovina | bank bank in country
+geopolitical location : National | country : South Vietnam | bank bank in country
+geopolitical location : National | country : Persia | bank bank in country
+geopolitical location : National | country : Canada | bank bank in country
+geopolitical location : National | geopolitical location : Tunisia | bank bank in country
+geopolitical location : National | island : Vanuatu | bank bank in country
+geopolitical location : National | country : Tajikistan | bank bank in country
+geopolitical location : National | geopolitical location : Cambodia | bank bank in country
+geopolitical location : National | geopolitical organization : Malawi | bank bank in country
+geopolitical location : National | geopolitical location : Macedonia001 | bank bank in country
+geopolitical location : National | geopolitical location : Mali | bank bank in country
+geopolitical location : National | island : Barbados | bank bank in country
+geopolitical location : National | geopolitical location : Qatar | bank bank in country
+geopolitical location : National | country : Vietnam | bank bank in country
+geopolitical location : National | geopolitical location : Cyprus | bank bank in country
+geopolitical location : National | geopolitical location : Romania | bank bank in country
+geopolitical location : National | geopolitical location : Slovakia | bank bank in country
+geopolitical location : National | country : South Korea | bank bank in country
+geopolitical location : National | geopolitical location : Mauritania | bank bank in country
+geopolitical location : National | country : China | bank bank in country
+geopolitical location : National | geopolitical organization : Uk | bank bank in country
+geopolitical location : National | country : Mauritius | bank bank in country
+geopolitical location : National | geopolitical location : East Timor | bank bank in country
+geopolitical location : National | country : Montenegro | bank bank in country
+geopolitical location : National | geopolitical location : Algeria | bank bank in country
+geopolitical location : National | geopolitical location : Ecuador | bank bank in country
+geopolitical location : National | geopolitical location : Sierra Leone | bank bank in country
+geopolitical location : National | country : England | bank bank in country
+geopolitical location : National | geopolitical location : Venezuela | bank bank in country
+geopolitical location : National | geopolitical location : Palestine | bank bank in country

@@ -91,12 +91,12 @@ def main():
     trainer_params = {
         'devices': devices,
         'accelerator': accelerator,
-        'max_epochs': configs.epochs,  # 1000
-        'logger': False,  # TensorBoardLogger
-        'num_sanity_val_steps': 0,  # 2
-        'check_val_every_n_epoch': 3,
+        'max_epochs': configs.epochs,
+        'logger': False,
+        'num_sanity_val_steps': 0,
+        'check_val_every_n_epoch': 1,
         'enable_progress_bar': True,
-        'enable_checkpointing': True,  # True
+        'enable_checkpointing': True,
         'callbacks': [
             checkpoint_callback,
             printing_callback
@@ -116,7 +116,7 @@ def main():
         model_path = checkpoint_callback.best_model_path
     else:
         model_path = configs.model_path
-    print('model_path:', model_path, flush=True)
+    print(f'model_path: [{model_path}]', flush=True)
     if model_path:
         model = T5Finetuner.load_from_checkpoint(model_path, strict=False, configs=configs, **kw_args)
         trainer.test(model, dataloaders=datamodule)

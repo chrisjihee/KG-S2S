@@ -1,0 +1,301 @@
+300
+American Pie | Romance Film | /film/film/genre
+St. Louis | Central Time Zone | /location/location/time_zones
+Modern Family | English Language | /tv/tv_program/languages
+Scarborough | Ontario | /base/biblioness/bibs_location/state
+Caucasian race | Warren G. Harding | /people/ethnicity/people
+Punk rock | Adam Horovitz | /music/genre/artists
+England | Royal Military Academy | /location/location/contains
+Man Booker Prize | Novel | /award/award_category/disciplines_or_subjects
+Pop rock | Marillion | /music/genre/artists
+Chicago Hope | United States of America | /tv/tv_program/country_of_origin
+Myocardial infarction | Ernst Lubitsch | /people/cause_of_death/people
+Frankenweenie | Comedy-GB | /film/film/genre
+Vertigo Records | Metallica | /music/record_label/artist
+Mira Nair | Teacher-GB | /people/person/profession
+Drum and bass | Reggae | /music/genre/parent_genre
+Country | Donna Summer | /music/genre/artists
+Charlie Parker | Male | /people/person/gender
+Scream 2 | Thriller | /film/film/genre
+Chrysalis Records | Jethro Tull | /music/record_label/artist
+Let the Right One In | Romance Film | /film/film/genre
+Alternative hip hop | Damon Albarn | /music/genre/artists
+Ashley Tisdale | Female | /people/person/gender
+India | Mangalore | /location/location/contains
+Ingmar Bergman | Sweden | /people/person/nationality
+The Adventures of Baron Munchausen | Michael Kamen | /film/film/music
+Television | Boardwalk Empire | /media_common/netflix_genre/titles
+Children of Men | Action Film | /film/film/genre
+NYPD Blue | Crime Fiction | /tv/tv_program/genre
+Indie pop | Zooey Deschanel | /music/genre/artists
+Hip hop music | Ludacris | /music/genre/artists
+Dragon Ball Z: Bojack Unbound | Anime | /film/film/genre
+Australia | History | /film/film/genre
+Wisner Washam | United States of America | /people/person/nationality
+Lebanese American | American English | /people/ethnicity/languages_spoken
+John Larroquette | Film Director | /people/person/profession
+United States of America | Evansville | /location/location/contains
+Post-bop | Freddie Hubbard | /music/genre/artists
+Christopher Columbus | Sailor | /people/person/profession
+The Avengers | Jon Favreau | /film/film/executive_produced_by
+Ang Lee | Film Director | /people/person/profession
+World War I | British Empire | /base/culturalevent/event/entity_involved
+Kristen Stewart | United States of America | /people/person/nationality
+George Lopez | Presenter-GB | /people/person/profession
+Sebastian Krys | Buenos Aires | /people/person/place_of_birth
+Kilmarnock F.C. | Yellow | /sports/sports_team/colors
+New Jersey | Ridgewood | /location/location/contains
+Raymond Massey | Anglicanism | /people/person/religion
+Oprah Winfrey | United States of America | /people/person/nationality
+Los Angeles | UCLA Bruins men's basketball | /sports/sports_team_location/teams
+Nelly Furtado | Guitarist-GB | /people/person/profession
+Pete Townshend | Screenwriter | /people/person/profession
+Hearts and Minds | History | /film/film/genre
+Jewish people | Sigmund Freud | /people/ethnicity/people
+St. Elsewhere | Black comedy | /tv/tv_program/genre
+Eastern Promises | Turkish Language | /film/film/language
+Polydor Records | Siouxsie & the Banshees | /music/record_label/artist
+New Jersey | Middlesex County | /location/location/contains
+Feminism | Erin Brockovich | /film/film_subject/films
+Kung Fu Hustle | Comedy-GB | /film/film/genre
+Beijing | China Time Zone-US | /location/location/time_zones
+Vantage Point | Action Film | /film/film/genre
+Gods and Monsters | Biography | /film/film/genre
+Thank You for Smoking | Indie film | /film/film/genre
+College Park | Eastern Time Zone | /location/location/time_zones
+Greg Graffin | Professor-GB | /people/person/profession
+Glory | Costume drama | /film/film/genre
+Saint Lucia | Parliamentary system | /location/country/form_of_government
+Newcastle United F.C. | Football | /sports/sports_team/sport
+Michael Pitt | Musician-GB | /people/person/profession
+Monsoon Wedding | Hindi Language | /film/film/language
+French American | Ian Somerhalder | /people/ethnicity/people
+Rock music | Hilary Duff | /music/genre/artists
+Alain Johannes | Bassist | /people/person/profession
+Sally Field | Actor-GB | /people/person/profession
+Country | Kid Rock | /music/genre/artists
+Harold Ramis | Screenwriter | /people/person/profession
+Flea | Melbourne | /people/person/place_of_birth
+Alice in Wonderland | Comedy-GB | /film/film/genre
+North America-US | Yale College | /location/location/contains
+Metalcore | Suicidal Tendencies | /music/genre/artists
+The Last King of Scotland | Germany | /film/film/country
+Kung Fu Hustle | Hong Kong | /film/film/country
+Scottish people | Craig Armstrong | /people/ethnicity/people
+North Rhine-Westphalia | Cologne | /location/location/contains
+Tisch School of the Arts | Tisch School of the Arts | /education/educational_institution/campuses
+Enchanted | Romantic comedy | /film/film/genre
+Sidney Poitier | Film Director | /people/person/profession
+Entourage | Comedy-GB | /tv/tv_program/genre
+Yarrow Shipbuilders | Shipbuilding | /business/business_operation/industry
+Toy Story | Steve Jobs | /film/film/executive_produced_by
+Lil Jon | Disc jockey-GB | /people/person/profession
+South Island | Christchurch | /location/location/contains
+Giant | Texas | /film/film/featured_film_locations
+1960 Summer Olympics | Dressage | /olympics/olympic_games/sports
+Mutiny on the Bounty | United States of America | /film/film/country
+Rich Little | Don Rickles | /base/americancomedy/celebrity_impressionist/celebrities_impersonated
+1984 Summer Olympics | Track and field athletics | /user/jg/default_domain/olympic_games/sports
+Glendale | Mountain Time Zone-US | /location/location/time_zones
+This Is Spinal Tap | Musical | /film/film/genre
+Fernando Trueba | Spain | /people/person/nationality
+Nick and Norah's Infinite Playlist | Romantic comedy | /film/film/genre
+Ip Man | Standard Mandarin | /film/film/language
+Java | West Java | /location/location/contains
+Motown Records | Stevie Wonder | /music/record_label/artist
+Lester Holt | Churches of Christ | /people/person/religion
+EMI | Talking Heads | /music/record_label/artist
+Aasif Mandvi | Islam | /people/person/religion
+Downfall | Biographical film | /film/film/genre
+Tara Strong | Female | /people/person/gender
+Soul jazz | Hard bop | /music/genre/parent_genre
+Target Corporation | Retail-GB | /business/business_operation/industry
+Irish American | Patricia Heaton | /people/ethnicity/people
+Iris | Harvey Weinstein | /film/film/executive_produced_by
+Chris Claremont | Writer-GB | /people/person/profession
+The Soloist | United Kingdom | /film/film/country
+Battleship | English Language | /film/film/language
+Eva Longoria | Film Producer-GB | /people/person/profession
+Arcadia | Pacific Time Zone | /location/location/time_zones
+Greg Graffin | Atheism | /people/person/religion
+English people | John Mills | /people/ethnicity/people
+Rock music | Jackson Browne | /music/genre/artists
+1964 Winter Olympics | Biathlon | /olympics/olympic_games/sports
+Bob Odenkirk | Comedian | /people/person/profession
+World Trade Organization | Indonesia | /user/ktrueman/default_domain/international_organization/member_states
+The Boat That Rocked | StudioCanal | /film/film/production_companies
+Schindler's List | Steven Spielberg | /film/film/produced_by
+Post-grunge | Pearl Jam | /music/genre/artists
+T. Rajendar | Screenwriter | /people/person/profession
+British people | Emma Watson | /people/ethnicity/people
+Takeshi Kitano | Film Director | /people/person/profession
+Sergeant York | Sol Polito | /film/film/cinematography
+Cirrhosis | John Cassavetes | /people/cause_of_death/people
+The Town | English Language | /film/film/language
+Cobra | Crime Fiction | /film/film/genre
+Richard Nixon | Frost/Nixon | /film/film_subject/films
+Iron Man 3 | Iron Man 2 | /film/film/prequel
+Colorado College | Colorado College | /education/educational_institution_campus/educational_institution
+Andrew Lloyd Webber | Film Producer-GB | /people/person/profession
+Lost Highway | Los Angeles | /film/film/featured_film_locations
+Alien Resurrection | Science Fiction | /film/film/genre
+Washington Nationals | Baseball | /sports/sports_team/sport
+John Debney | United States of America | /people/person/nationality
+Jacques Derrida | Paris | /people/deceased_person/place_of_death
+Benito Mussolini | Catholicism | /people/person/religion
+Dan Curtis | United States of America | /people/person/nationality
+St. Charles County | Central Time Zone | /location/location/time_zones
+America's Next Top Model | United States of America | /tv/tv_program/country_of_origin
+Anorexia | Hepatitis B | /medicine/symptom/symptom_of
+Rita Hayworth | United States of America | /people/person/nationality
+Donnie Yen | China | /people/person/nationality
+Ashley Judd | United States of America | /people/person/nationality
+Colm Meaney | Dublin | /people/person/place_of_birth
+Gaslight | Irene | /film/film/costume_design_by
+Nino Rota | Rome | /people/deceased_person/place_of_death
+Ry Cooder | Record producer-GB | /people/person/profession
+Comedy rock | Jack Black | /music/genre/artists
+Cedric Gibbons | Academy of Motion Picture Arts and Sciences | /organization/organization_founder/organizations_founded
+Samuel Goldwyn | Glendale | /people/deceased_person/place_of_burial
+Zoolander | English Language | /film/film/language
+Matt Lauer | Male | /people/person/gender
+Resident Evil: Afterlife | Japanese Language | /film/film/language
+The Birds | Horror | /film/film/genre
+Saving Private Ryan | War film | /film/film/genre
+Harry Potter and the Philosopher's Stone | Fiction | /film/film/genre
+Benny Andersson | Record producer-GB | /people/person/profession
+She Hate Me | German Language | /film/film/language
+Matt Selman | Male | /people/person/gender
+Irish people | Peter O'Toole | /people/ethnicity/people
+Strictly Ballroom | Romance Film | /film/film/genre
+Jerry Lee Lewis | Actor-GB | /people/person/profession
+Kathy Griffin | Television producer-GB | /people/person/profession
+Motherwell F.C. | Football | /sports/sports_team/sport
+The Devil's Double | Film adaptation | /film/film/genre
+Howard University | Private university | /education/educational_institution/school_type
+The Sopranos | United States of America | /tv/tv_program/country_of_origin
+Patrick Gallagher | United States of America | /people/person/nationality
+Cleveland | Cleveland Cavaliers | /sports/sports_team_location/teams
+Richard Marx | Musician-GB | /people/person/profession
+Tom Stoppard | Samuel Beckett | /influence/influence_node/influenced_by
+Victor Victoria | LGBT | /film/film/genre
+Dark wave | Gary Numan | /music/genre/artists
+Jackie Brown | Bob Weinstein | /film/film/executive_produced_by
+Andrew G. Vajna | United States of America | /people/person/nationality
+Stanley Kramer | Male | /people/person/gender
+Hayden Christensen | Male | /people/person/gender
+Ferris Bueller's Day Off | Los Angeles | /film/film/featured_film_locations
+Television | Law & Order: Special Victims Unit | /media_common/netflix_genre/titles
+Adventure Film | Indiana Jones and the Temple of Doom | /media_common/netflix_genre/titles
+James Woods | Voice Actor | /people/person/profession
+The Brothers Grimm | United Kingdom | /film/film/country
+Joseph Sargent | Actor-GB | /people/person/profession
+Geraldine Chaplin | United Kingdom | /people/person/nationality
+Penn Dayton Badgley | Spokesperson-GB | /people/person/profession
+Bladder cancer | Conrad L. Hall | /people/cause_of_death/people
+Howard Bristol | Gone with the Wind | /film/film_set_designer/film_sets_designed
+Psycho | English Language | /film/film/language
+Rosie O'Donnell | Comedian | /people/person/profession
+The Girl with the Dragon Tattoo | Sweden | /film/film/country
+Piano | Roger Meddows Taylor | /music/instrument/instrumentalists
+Norwegians | Norwegian Language | /people/ethnicity/languages_spoken
+Aleksandr Pushkin | Johann Wolfgang von Goethe | /influence/influence_node/influenced_by
+Micky Dolenz | Male | /people/person/gender
+Garry Marshall | Television producer-GB | /people/person/profession
+Kingdom of Scotland | Dunfermline | /location/country/capital
+Sarah Silverman | Television producer-GB | /people/person/profession
+Aladdin | Comedy-GB | /film/film/genre
+Lebanese Civil War | Hezbollah | /base/culturalevent/event/entity_involved
+Alternative rock | Kurt Cobain | /music/genre/artists
+Marvel Comics | Publishing-GB | /business/business_operation/industry
+Hellboy | Revolution Studios | /film/film/production_companies
+Brad Jones | Australia | /people/person/nationality
+Keith Jarrett | Male | /people/person/gender
+Basic Instinct | Oakland | /film/film/featured_film_locations
+Russian American | Russian Language | /people/ethnicity/languages_spoken
+Chris Botti | Musician-GB | /people/person/profession
+East Sussex | Brighton | /location/location/contains
+Rob Zombie | Composer | /people/person/profession
+Constantine | Drama | /film/film/genre
+James Brolin | English Language | /people/person/languages
+Worthing | Greenwich Mean Time Zone | /location/location/time_zones
+Bruce Broughton | Composer | /people/person/profession
+Grammy Award for Best Jazz Vocal Album | Grammy Awards | /award/award_category/category_of
+Kiss Kiss Bang Bang | Los Angeles | /film/film/featured_film_locations
+Albert Finney | Film Producer-GB | /people/person/profession
+Auto racing | Speed Racer | /media_common/netflix_genre/titles
+David Mandel | Film Director | /people/person/profession
+Mark Harmon | Male | /people/person/gender
+Gary Rydstrom | United States of America | /people/person/nationality
+Lost in Translation | English Language | /film/film/language
+Italian American | Freddie Prinze, Jr. | /people/ethnicity/people
+Wyatt Cenac | Male | /people/person/gender
+Training Day | Australia | /film/film/country
+The Duchess | Rachel Portman | /film/film/music
+Rwanda | Presidential system | /location/country/form_of_government
+Louis Malle | Miles Davis | /influence/influence_node/influenced_by
+Bangladesh | Unitary state | /location/country/form_of_government
+Wyoming | Mountain Time Zone-US | /location/location/time_zones
+Respiratory failure | June Allyson | /people/cause_of_death/people
+Vomiting | AIDS | /medicine/symptom/symptom_of
+Ross County F.C. | Blue | /sports/sports_team/colors
+Chris Parnell | United States of America | /people/person/nationality
+Pamela Anderson | Television producer-GB | /people/person/profession
+Swedish American | Melanie Griffith | /people/ethnicity/people
+Tarzan | Costume drama | /film/film/genre
+David Brown | Theatrical producer | /people/person/profession
+Kiss Kiss Bang Bang | Neo-noir | /film/film/genre
+United States of America | Parkersburg | /location/location/contains
+Cape Verde | Sovereign state | /base/aareas/schema/administrative_area/administrative_area_type
+United Kingdom | Epsom | /location/location/contains
+Musical | Annie | /media_common/netflix_genre/titles
+Pina | United Kingdom | /film/film/country
+Lara Croft Tomb Raider: The Cradle of Life | Lindy Hemming | /film/film/costume_design_by
+Barack Obama | Honolulu | /people/person/place_of_birth
+Gospel music | Gladys Knight | /music/genre/artists
+Let the Right One In | Horror | /film/film/genre
+Eddie Izzard | George Carlin | /influence/influence_node/influenced_by
+Everybody Loves Raymond | English Language | /tv/tv_program/languages
+Freddy Rodriguez | Chicago | /people/person/place_of_birth
+Jerry O'Connell | Film Producer-GB | /people/person/profession
+Tony Randall | Comedian | /people/person/profession
+Rick James | Record producer-GB | /people/person/profession
+United States of America | Flushing | /location/location/contains
+Djembe | Joan Baez | /music/instrument/instrumentalists
+War and Peace-GB | War film | /film/film/genre
+Brett Ratner | Film Producer-GB | /people/person/profession
+Springfield | Springfield | /location/hud_county_place/place
+Amistad | Spanish Language | /film/film/language
+Sesame Street | Comedy-GB | /tv/tv_program/genre
+Ben Affleck | Actor-GB | /people/person/profession
+Western Australia | Perth Airport | /location/location/contains
+Anniston | Central Time Zone | /location/location/time_zones
+Acoustic music | The Moody Blues | /music/genre/artists
+Bodyguards and Assassins | Yue Chinese | /film/film/language
+African American | Taraji P. Henson | /people/ethnicity/people
+Chiba Lotte Marines | Black | /sports/sports_team/colors
+Frank Loesser | United States of America | /people/person/nationality
+Brighton Rock | Remake | /film/film/genre
+Guitar | Paul Williams | /music/instrument/instrumentalists
+The Singing Detective | United Kingdom | /film/film/country
+1964 Winter Olympics | Biathlon | /user/jg/default_domain/olympic_games/sports
+World Trade Organization | Qatar | /user/ktrueman/default_domain/international_organization/member_states
+Dudley Moore | Actor-GB | /people/person/profession
+Mo Willems | United States of America | /people/person/nationality
+Suspense | Rebecca | /media_common/netflix_genre/titles
+Punk rock | Hayley Williams | /music/genre/artists
+My Neighbor Totoro | Anime | /film/film/genre
+LeAnn Rimes | Singer-songwriter-GB | /people/person/profession
+Citizen Kane | Drama | /film/film/genre
+Infernal Affairs II | Infernal Affairs | /film/film/prequel
+Synecdoche, New York | Comedy-drama | /film/film/genre
+Botswana | Earth | /base/aareas/schema/administrative_area/administrative_parent
+Beverly Hills, 90210 | Drama | /tv/tv_program/genre
+Jewish people | Howie Mandel | /people/ethnicity/people
+Raymond Massey | Canada | /people/person/nationality
+Violin | Kate Bush | /music/instrument/instrumentalists
+Bass guitar | Jon Lord | /music/instrument/instrumentalists
+Spain national football team | Blue | /sports/sports_team/colors
+John Powell | London | /people/person/place_of_birth
+Virginia Woolf | William Shakespeare | /influence/influence_node/influenced_by
+Valentine's Day | John Debney | /film/film/music

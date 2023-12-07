@@ -13,11 +13,11 @@ import pygtrie
 
 
 def get_num(dataset_path, dataset, mode='entity'):  # mode: {entity, relation}
-    return int(open(os.path.join(dataset_path, dataset, mode + '2id.txt')).readline().strip())
+    return int(open(os.path.join(dataset_path, dataset.replace("'", ""), mode + '2id.txt')).readline().strip())
 
 
 def read(configs, dataset_path, dataset, filename):
-    file_name = os.path.join(dataset_path, dataset, filename)
+    file_name = os.path.join(dataset_path, dataset.replace("'", ""), filename)
     with open(file_name) as file:
         lines = file.read().strip().split('\n')
     n_triples = int(lines[0])
@@ -35,7 +35,7 @@ def read(configs, dataset_path, dataset, filename):
 
 def read_file(configs, dataset_path, dataset, filename, mode='descrip'):
     id2name = []
-    file_name = os.path.join(dataset_path, dataset, filename)
+    file_name = os.path.join(dataset_path, dataset.replace("'", ""), filename)
     with open(file_name, encoding='utf-8') as file:
         lines = file.read().strip('\n').split('\n')
     for i in range(1, len(lines)):

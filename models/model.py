@@ -362,6 +362,7 @@ class T5Finetuner(pl.LightningModule):
         del agg_tail_out['ranks']
         del agg_head_out['ranks']
 
+        print()
         perf = get_performance(self, tail_ranks, head_ranks)
         print(perf)
 

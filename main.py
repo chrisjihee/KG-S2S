@@ -89,14 +89,14 @@ def main():
     print("----------------------------------------------------------------------------------")
     print()
     trainer_params = {
-        'accelerator': accelerator,
         'devices': devices,
+        'accelerator': accelerator,
         'max_epochs': configs.epochs,  # 1000
-        # 'checkpoint_callback': True,  # True
         'logger': False,  # TensorBoardLogger
         'num_sanity_val_steps': 0,  # 2
         'check_val_every_n_epoch': 3,
         'enable_progress_bar': True,
+        'enable_checkpointing': True,  # True
         'callbacks': [
             checkpoint_callback,
             printing_callback
@@ -117,8 +117,9 @@ def main():
     else:
         model_path = configs.model_path
     print('model_path:', model_path, flush=True)
-    model = T5Finetuner.load_from_checkpoint(model_path, strict=False, configs=configs, **kw_args)
-    trainer.test(model, dataloaders=datamodule)
+    if model_path:
+        model = T5Finetuner.load_from_checkpoint(model_path, strict=False, configs=configs, **kw_args)
+        trainer.test(model, dataloaders=datamodule)
 
 
 if __name__ == '__main__':

@@ -11,3 +11,4 @@ pygtrie
 jsonlines
 sentencepiece
 einops
+protobuf==3.20.0

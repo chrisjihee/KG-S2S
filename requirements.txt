@@ -11,3 +11,4 @@ pygtrie
 jsonlines
 dataclasses
 sentencepiece
+einops

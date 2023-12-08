@@ -1,11 +1,13 @@
 import os
-import datetime
 import argparse
 from datetime import datetime
 import warnings
 import torch
+import GBSWT5
 import pytorch_lightning as pl
 from pytorch_lightning.callbacks import ModelCheckpoint
+from transformers import AutoConfig
+from transformers import AutoTokenizer
 from transformers import T5Tokenizer
 from transformers import T5Config
 from models.model import T5Finetuner
@@ -23,7 +25,7 @@ def main():
 
     ## construct name list
     original_ent_name_list, rel_name_list = read_name(configs, configs.dataset_path, configs.dataset)
-    tokenizer = T5Tokenizer.from_pretrained(configs.pretrained_model)
+    tokenizer = AutoTokenizer.from_pretrained(configs.pretrained_model)
     description_list = read_file(configs, configs.dataset_path, configs.dataset, 'entityid2description.txt', 'descrip')
     print('tokenizing entities...')
     src_description_list = tokenizer.batch_decode([descrip[:-1] for descrip in tokenizer(description_list, max_length=configs.src_descrip_max_length, truncation=True).input_ids])
@@ -163,8 +165,8 @@ if __name__ == '__main__':
     n_rel = get_num(configs.dataset_path, configs.dataset, 'relation')
     configs.n_ent = n_ent
     configs.n_rel = n_rel
-    configs.vocab_size = T5Config.from_pretrained(configs.pretrained_model).vocab_size
-    configs.model_dim = T5Config.from_pretrained(configs.pretrained_model).d_model
+    configs.vocab_size = AutoConfig.from_pretrained(configs.pretrained_model).vocab_size
+    configs.model_dim = AutoConfig.from_pretrained(configs.pretrained_model).d_model
     if configs.save_dir == '':
         configs.save_dir = os.path.join('./checkpoint', configs.dataset + '-' + str(datetime.now()))
     os.makedirs(configs.save_dir, exist_ok=True)

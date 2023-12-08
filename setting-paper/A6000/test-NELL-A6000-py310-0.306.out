@@ -1,0 +1,39 @@
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+(KG-S2S) chrisjihee@ptlm3:~/proj/KG-S2S$ bash setting-paper/A6000/test-NELL-A6000.sh
+Namespace(dataset_path='./data/processed', dataset='NELL', model='T5Finetuner', gpu='3', seed=41504, num_workers=4, save_dir='./checkpoint/NELL-2023-12-08 12:13:59.661716', pretrained_model='t5-base', batch_size=64, val_batch_size=8, num_beams=40, num_beam_groups=1, src_max_length=512, train_tgt_max_length=512, eval_tgt_max_length=25, epochs=500, lr=0.001, diversity_penalty=0.0, model_path='checkpoint/NELL-2023-12-07 23:13:52.632393/NELL-epoch=028-val_mrr=0.2264.ckpt', optim='Adam', decoder='beam_search', log_text=False, use_prefix_search=True, src_descrip_max_length=0, tgt_descrip_max_length=0, use_soft_prompt=True, use_rel_prompt_emb=True, skip_n_val_epoch=0, seq_dropout=0.0, temporal=False, n_ent=68544, n_rel=358, vocab_size=32128, model_dim=768)
+Global seed set to 41504
+tokenizing entities...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 68544/68544 [00:29<00:00, 2355.09it/s]
+datamodule construction done.
+
+----------------------------------------------------------------------------------
+ * pl.Trainer(accelerator=gpu, devices=[3])
+----------------------------------------------------------------------------------
+
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+model_path: [checkpoint/NELL-2023-12-07 23:13:52.632393/NELL-epoch=028-val_mrr=0.2264.ckpt]
+You are using a CUDA device ('NVIDIA RTX A6000') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+Testing DataLoader 1: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [05:41<00:00,  1.26s/it]
+                   mrr            mr   hit@1   hit@3   hit@5  hit@10
+tail ranking  0.301848  12014.032437  21.59%  34.29%  39.02%  46.66%
+head ranking  0.310592   9000.974977  22.06%  33.69%  40.50%  50.23%
+mean ranking  0.306220  10507.503707  21.83%  33.99%  39.76%  48.45%
+
+==================================================
+Epoch: test
+Ellipsis
+==================================================
+Testing DataLoader 1: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [05:41<00:00,  1.26s/it]
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+       Test metric             DataLoader 0             DataLoader 1
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+         val_mrr            0.30184829235076904      0.30184829235076904
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+(KG-S2S) chrisjihee@ptlm3:~/proj/KG-S2S$ 
+

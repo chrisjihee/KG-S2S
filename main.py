@@ -174,4 +174,5 @@ if __name__ == '__main__':
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
     torch.set_printoptions(profile='full')
+    # torch.set_float32_matmul_precision('medium')
     main()

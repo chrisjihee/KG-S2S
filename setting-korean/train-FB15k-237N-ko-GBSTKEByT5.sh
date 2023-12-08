@@ -12,4 +12,4 @@ python3 main.py -dataset FB15k-237N-ko \
                 -eval_tgt_max_length 90 \
                 -skip_n_val_epoch 1 \
                 -pretrained_model etri-lirs/gbst-kebyt5-base-preview \
-                -gpu 1
+                -gpu 3

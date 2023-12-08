@@ -12,4 +12,4 @@ python3 main.py -dataset FB15k-237-ko \
                 -eval_tgt_max_length 30 \
                 -skip_n_val_epoch 1 \
                 -pretrained_model mt5-base \
-                -gpu 0
+                -gpu 1

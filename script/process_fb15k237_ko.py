@@ -2,7 +2,7 @@ from base import Processor
 
 in_folder = '../data/raw'
 out_folder = '../data/processed'
-dataset = 'FB15k-237'
+dataset = 'FB15k-237-ko'
 cased = True
 
 

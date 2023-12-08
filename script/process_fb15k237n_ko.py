@@ -2,16 +2,17 @@ from base import Processor
 
 in_folder = '../data/raw'
 out_folder = '../data/processed'
-dataset = 'FB15k-237'
-cased = True
+in_dataset = 'FB15k-237-ko'
+out_dataset = 'FB15k-237N-ko'
 
 
-class FB15k237_Processor(Processor):
-    def __init__(self, in_folder, out_folder, dataset):
-        super().__init__(in_folder, out_folder, dataset)
+class FB15K237N_Processor(Processor):
+    def __init__(self, in_folder, out_folder, in_dataset, out_dataset):
+        super().__init__(in_folder, out_folder, out_dataset)
+        self.in_dataset = in_dataset
 
     def create_ent2name(self, filename):
-        lines = self.read_file(filename)
+        lines = self.read_file(filename, dataset=in_dataset)
         for i, line in enumerate(lines):
             ent, name = line.split('\t')
             name = name.strip('\"').replace(r'\n', '').replace(r'\t', '').replace('\\', '')
@@ -21,7 +22,7 @@ class FB15k237_Processor(Processor):
                 raise ValueError('%s dupliated entities!' % ent)
 
     def create_ent2descrip(self, filename):
-        lines = self.read_file(filename)
+        lines = self.read_file(filename, dataset=in_dataset)
         for i, line in enumerate(lines):
             ent, descrip = line.split('\t')
             if descrip.endswith('@en'):
@@ -33,7 +34,7 @@ class FB15k237_Processor(Processor):
                 raise ValueError('%s dupliated entities!' % ent)
 
     def create_ent2id(self, filename):
-        lines = self.read_file(filename)
+        lines = self.read_file(filename, dataset=in_dataset)
         for i, line in enumerate(lines):
             ent = line.strip()
             self.ent2id[ent] = i
@@ -44,13 +45,15 @@ class FB15k237_Processor(Processor):
                 self.entid2descrip[i] = ''
 
     def create_rel2id(self, filename):
-        lines = self.read_file(filename)
-        for i, line in enumerate(lines):
+        lines = self.read_file(filename, dataset=in_dataset)
+        for line in lines:
             rel = line.split('\t')[0]
-            self.rel2id[rel] = i
-            self.relid2name[i] = rel
+            if '.' not in rel:
+                self.rel2id[rel] = len(self.rel2id)
+                self.relid2name[len(self.relid2name)] = rel
 
-processor = FB15k237_Processor(in_folder, out_folder, dataset)
+print('preprocessing FB15k-237N...')
+processor = FB15K237N_Processor(in_folder, out_folder, in_dataset, out_dataset)
 processor.create_out_folder()
 processor.create_ent2name('entity2text.txt')
 processor.create_ent2descrip('entity2textlong.txt')
@@ -66,6 +69,6 @@ in_files = ['train.tsv', 'dev.tsv', 'test.tsv']
 out_files = ['train2id.txt', 'valid2id.txt', 'test2id.txt']
 for i in range(3):
     in_file, out_file = in_files[i], out_files[i]
-    triples = processor.read_triples(in_file)
+    triples = processor.read_triples(in_file, dataset=in_dataset)
     processor.write_triples(out_file, triples)
 

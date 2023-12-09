@@ -1,0 +1,67 @@
+(KG-S2S) chris@chris137:/dat/proj/KG-S2S$ bash setting-paper/RTX/test-NELL-RTX.sh
+Namespace(dataset_path='./data/processed', dataset='NELL', model='T5Finetuner', gpu='3', seed=41504, num_workers=4, save_dir='./checkpoint/NELL-2023-12-09 22:34:32.667579', pretrained_model='t5-base', batch_size=64, val_batch_size=8, num_beams=40, num_beam_groups=1, src_max_length=512, train_tgt_max_length=512, eval_tgt_max_length=25, epochs=500, lr=0.001, diversity_penalty=0.0, model_path='checkpoint/NELL-2023-12-08 15:36:24.212986/NELL-epoch=029-val_mrr=0.2408.ckpt', optim='Adam', decoder='beam_search', log_text=False, use_prefix_search=True, src_descrip_max_length=0, tgt_descrip_max_length=0, use_soft_prompt=True, use_rel_prompt_emb=True, skip_n_val_epoch=0, seq_dropout=0.0, temporal=False, n_ent=68544, n_rel=358, vocab_size=32128, model_dim=768)
+Global seed set to 41504
+tokenizing entities...
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 68544/68544 [00:29<00:00, 2299.80it/s]
+datamodule construction done.
+
+----------------------------------------------------------------------------------
+ * pl.Trainer(accelerator=gpu, devices=[3])
+----------------------------------------------------------------------------------
+
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+model_path: [checkpoint/NELL-2023-12-08 15:36:24.212986/NELL-epoch=029-val_mrr=0.2408.ckpt]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+Testing: 0it [00:00, ?it/s]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+        - Avoid using `tokenizers` before the fork if possible
+        - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+        - Avoid using `tokenizers` before the fork if possible
+        - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+        - Avoid using `tokenizers` before the fork if possible
+        - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+        - Avoid using `tokenizers` before the fork if possible
+        - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Testing DataLoader 0: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [05:51<00:00,  1.30s/it]huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+        - Avoid using `tokenizers` before the fork if possible
+        - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+        - Avoid using `tokenizers` before the fork if possible
+        - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+        - Avoid using `tokenizers` before the fork if possible
+        - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+        - Avoid using `tokenizers` before the fork if possible
+        - Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Testing DataLoader 1: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [05:37<00:00,  1.25s/it]
+                   mrr            mr   hit@1   hit@3   hit@5  hit@10
+tail ranking  0.274192  12867.851251  19.23%  30.91%  36.01%  44.81%
+head ranking  0.309033   9115.718721  21.36%  34.48%  40.13%  50.56%
+mean ranking  0.291612  10991.784986  20.30%  32.69%  38.07%  47.68%
+
+==================================================
+Epoch: test
+Ellipsis
+==================================================
+Testing DataLoader 1: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 270/270 [05:37<00:00,  1.25s/it]
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Runningstage.testing metric      DataLoader 0             DataLoader 1
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+         val_mrr            0.27419236302375793      0.27419236302375793
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+(KG-S2S) chris@chris137:/dat/proj/KG-S2S$
+

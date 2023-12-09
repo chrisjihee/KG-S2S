@@ -10,6 +10,6 @@ python3 main.py -dataset FB15k-237N-ko \
                 -seq_dropout 0.2 \
                 -num_beams 40 \
                 -eval_tgt_max_length 90 \
-                -skip_n_val_epoch 1 \
+                -skip_n_val_epoch 0 \
                 -pretrained_model etri-lirs/kebyt5-base-preview \
                 -gpu 2

@@ -84,14 +84,15 @@ def main():
 
     accelerator = configs.accelerator
     precision = configs.precision
-    devices = configs.devices
+    strategy = configs.strategy
     print()
     print("----------------------------------------------------------------------------------")
-    print(f" * pl.Trainer(accelerator={accelerator}, precision={precision}, devices={devices})")
+    print(f" * pl.Trainer(accelerator={accelerator}, precision={precision}, strategy={strategy})")
     print("----------------------------------------------------------------------------------")
     print()
     trainer_params = {
-        'devices': devices,
+        'devices': 1,
+        'strategy': strategy,
         'precision': precision,
         'accelerator': accelerator,
         'max_epochs': configs.epochs,
@@ -132,7 +133,7 @@ if __name__ == '__main__':
     parser.add_argument('-dataset_path', type=str, default='./data/processed')
     parser.add_argument('-dataset', dest='dataset', default='WN18RR', help='Dataset to use, default: WN18RR')
     parser.add_argument('-model', default='T5Finetuner', help='Model Name')
-    parser.add_argument('-devices', type=str, default='1', help='Number of training devices')
+    parser.add_argument('-strategy', type=str, default='auto', help='Distribution strategy')
     parser.add_argument('-precision', type=str, default='auto', help='Floating point precision')
     parser.add_argument('-accelerator', type=str, default='auto', help='Type of training accelerator')
     parser.add_argument('-seed', dest='seed', default=41504, type=int, help='Seed for randomization')

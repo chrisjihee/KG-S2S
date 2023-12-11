@@ -114,3 +114,4 @@ venv.bak/
 *.swp
 *.tmp
 /pretrained*
+.DS_Store

@@ -10,6 +10,9 @@ class TrainDataset(Dataset):
         self.configs = configs
         self.train_triples = train_triples
         self.tokenizer = tokenizer
+        self.vertical_bar_tok_id = tokenizer('|').input_ids[0]
+        self.extra_id_0_tok_id = tokenizer('<extra_id_0>').input_ids[0]
+        self.extra_id_1_tok_id = tokenizer('<extra_id_1>').input_ids[0]
         self.original_ent_name_list = name_list_dict['original_ent_name_list']
         self.ent_name_list = name_list_dict['ent_name_list']
         self.rel_name_list = name_list_dict['rel_name_list']
@@ -69,7 +72,10 @@ class TrainDataset(Dataset):
         }
 
         if self.configs.use_soft_prompt:
-            input_index, soft_prompt_index, target_soft_prompt_index = get_soft_prompt_pos(self.configs, source_ids, target_ids, mode)
+            input_index, soft_prompt_index, target_soft_prompt_index = get_soft_prompt_pos(self.configs, source_ids, target_ids, mode,
+                                                                                           vertical_bar_token_id=self.vertical_bar_tok_id,
+                                                                                           extra_id_0_token_id=self.extra_id_0_tok_id,
+                                                                                           extra_id_1_token_id=self.extra_id_1_tok_id)
             out['input_index'] = input_index
             out['soft_prompt_index'] = soft_prompt_index
             out['target_soft_prompt_index'] = target_soft_prompt_index
@@ -101,6 +107,9 @@ class TestDataset(Dataset):
         self.tgt_description_list = name_list_dict['tgt_description_list']
         self.ent_token_ids_in_trie = prefix_trie_dict['ent_token_ids_in_trie']
         self.tokenizer = tokenizer
+        self.vertical_bar_tok_id = tokenizer('|').input_ids[0]
+        self.extra_id_0_tok_id = tokenizer('<extra_id_0>').input_ids[0]
+        self.extra_id_1_tok_id = tokenizer('<extra_id_1>').input_ids[0]
         self.mode = mode
 
     def __len__(self):
@@ -149,7 +158,10 @@ class TestDataset(Dataset):
             'ent_rel': ent_rel
         }
         if self.configs.use_soft_prompt:
-            input_index, soft_prompt_index, _ = get_soft_prompt_pos(self.configs, source_ids, None, self.mode)
+            input_index, soft_prompt_index, _ = get_soft_prompt_pos(self.configs, source_ids, None, self.mode,
+                                                                    vertical_bar_token_id=self.vertical_bar_tok_id,
+                                                                    extra_id_0_token_id=self.extra_id_0_tok_id,
+                                                                    extra_id_1_token_id=self.extra_id_1_tok_id)
             out['input_index'] = input_index
             out['soft_prompt_index'] = soft_prompt_index
         return out

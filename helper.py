@@ -91,9 +91,9 @@ def get_next_token_dict(configs, ent_token_ids_in_trie, prefix_trie):
     return neg_candidate_mask, next_token_dict
 
 
-def get_soft_prompt_pos(configs, source_ids, target_ids, mode):
+def get_soft_prompt_pos(configs, source_ids, target_ids, mode, vertical_bar_token_id, extra_id_0_token_id, extra_id_1_token_id):
     if configs.temporal:
-        sep1, sep2, sep3 = [ids for ids in range(len(source_ids)) if source_ids[ids] == 1820]
+        sep1, sep2, sep3 = [ids for ids in range(len(source_ids)) if source_ids[ids] == vertical_bar_token_id]
         if mode == 'tail':
             input_index = [0] + list(range(0, sep1)) + [0] + [sep1] + [0] + list(range(sep1 + 1, sep2)) + [0] + list(range(sep2, len(source_ids)))
             soft_prompt_index = torch.LongTensor([0, sep1 + 1, sep1 + 3, sep2 + 3])
@@ -101,7 +101,7 @@ def get_soft_prompt_pos(configs, source_ids, target_ids, mode):
             input_index = list(range(0, sep1 + 1)) + [0] + list(range(sep1 + 1, sep2)) + [0, sep2, 0] + list(range(sep2 + 1, sep3)) + [0] + list(range(sep3, len(source_ids)))
             soft_prompt_index = torch.LongTensor([sep2 + 3, sep3 + 3, sep1 + 1, sep2 + 1])
     else:
-        sep1, sep2 = [ids for ids in range(len(source_ids)) if source_ids[ids] == 1820]
+        sep1, sep2 = [ids for ids in range(len(source_ids)) if source_ids[ids] == vertical_bar_token_id]
         if mode == 'tail':
             input_index = [0] + list(range(0, sep1)) + [0] + [sep1] + [0] + list(range(sep1 + 1, sep2)) + [0] + list(range(sep2, len(source_ids)))
             soft_prompt_index = torch.LongTensor([0, sep1 + 1, sep1 + 3, sep2 + 3])
@@ -111,7 +111,7 @@ def get_soft_prompt_pos(configs, source_ids, target_ids, mode):
     if target_ids is None:
         target_soft_prompt_index = None
     else:
-        extra_token_01, extra_token_02 = target_ids.index(32099), target_ids.index(32098)
+        extra_token_01, extra_token_02 = target_ids.index(extra_id_0_token_id), target_ids.index(extra_id_1_token_id)
         target_soft_prompt_index = torch.LongTensor([extra_token_01, extra_token_02])
     return input_index, soft_prompt_index, target_soft_prompt_index
 

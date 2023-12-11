@@ -1,0 +1,46 @@
+(KG-S2S) chrisjihee@ptlm3:~/proj/KG-S2S$ bash setting-korean/train-FB15k-237N-ko-ke-t5-ko-1.sh
+Namespace(dataset_path='./data/processed', dataset='FB15k-237N-ko', model='T5Finetuner', gpu='2', seed=41504, num_workers=4, save_dir='./checkpoint/FB15k-237N-ko-2023-12-11 21:04:40.117716', pretrained_model='KETI-AIR/ke-t5-base-ko', batch_size=16, val_batch_size=8, num_beams=40, num_beam_groups=1, src_max_length=512, train_tgt_max_length=512, eval_tgt_max_length=90, epochs=1, lr=0.001, diversity_penalty=0.0, model_path='', optim='Adam', decoder='beam_search', log_text=False, use_prefix_search=False, src_descrip_max_length=240, tgt_descrip_max_length=240, use_soft_prompt=True, use_rel_prompt_emb=True, skip_n_val_epoch=0, seq_dropout=0.2, temporal=False, n_ent=12068, n_rel=90, vocab_size=64128, model_dim=768)
+Global seed set to 41504
+tokenizing entities...
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 12068/12068 [00:27<00:00, 434.83it/s]
+datamodule construction done.
+
+----------------------------------------------------------------------------------
+ * pl.Trainer(accelerator=gpu, devices=[2])
+----------------------------------------------------------------------------------
+
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+model construction done.
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1,2,3]
+
+  | Name          | Type                               | Params
+---------------------------------------------------------------------
+0 | core_t5_model | ModifiedT5ForConditionalGeneration | 247 M
+1 | rel_embed1    | Embedding                          | 69.1 K
+2 | rel_embed2    | Embedding                          | 69.1 K
+3 | rel_embed3    | Embedding                          | 69.1 K
+4 | rel_embed4    | Embedding                          | 69.1 K
+---------------------------------------------------------------------
+247 M     Trainable params
+0         Non-trainable params
+247 M     Total params
+991.024   Total estimated model params size (MB)
+Training: 0it [00:00, ?it/s]Epoch:    0,
+Epoch 0:  86%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                                  | 9138/10592 [24:07<03:50,  6.31it/s, loss=0.507]Training time: 1447s
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10592/10592 [2:04:44<00:00,  1.42it/s, loss=0.507]
+                   mrr           mr   hit@1   hit@3  hit@10█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 727/727 [51:11<00:00,  3.68s/it]
+tail ranking  0.383051  2702.992087  31.65%  42.37%  51.99%
+head ranking  0.081010  4967.025632   5.49%   9.03%  13.93%
+mean ranking  0.232030  3835.008859  18.57%  25.70%  32.96%
+Ellipsis
+Validation time: 6036s
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10592/10592 [2:04:44<00:00,  1.42it/s, loss=0.507]
+Total time: 7484s, loss: 0.9798
+--------------------------------------------------
+Epoch 0: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 10592/10592 [2:04:56<00:00,  1.41it/s, loss=0.507]
+model_path: [./checkpoint/FB15k-237N-ko-2023-12-11 21:04:40.117716/FB15k-237N-ko-epoch=000-val_mrr=0.2320.ckpt]
+(KG-S2S) chrisjihee@ptlm3:~/proj/KG-S2S$
+

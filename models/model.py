@@ -5,6 +5,8 @@ import torch
 import torch.nn as nn
 import pytorch_lightning as pl
 from models.modified_model.modified_T5 import ModifiedT5ForConditionalGeneration
+from models.modified_model.modified_mT5 import ModifiedMT5ForConditionalGeneration
+from transformers import AutoConfig
 from transformers.optimization import Adafactor
 from collections import Counter
 from helper import get_performance
@@ -28,7 +30,13 @@ class T5Finetuner(pl.LightningModule):
         self.next_token_dict = prefix_trie_dict['next_token_dict']
         if self.configs.tgt_descrip_max_length > 0:
             self.ent_token_ids_in_trie_with_descrip = prefix_trie_dict['ent_token_ids_in_trie_with_descrip']
-        self.core_t5_model = ModifiedT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
+        config = AutoConfig.from_pretrained(configs.pretrained_model)
+        if config.model_type == "t5":
+            self.core_t5_model = ModifiedT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
+        elif config.model_type == "mt5":
+            self.core_t5_model = ModifiedMT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
+        else:
+            raise ValueError('Invalid model type: [%s] %s' % (config.model_type, configs.pretrained_model))
 
         if self.configs.use_soft_prompt:
             prompt_dim = self.core_t5_model.model_dim

@@ -7,6 +7,7 @@ from chrisbase.io import num_lines, LoggingFormat, configure_unit_logger
 from chrisbase.util import mute_tqdm_cls
 from dataclasses_json import DataClassJsonMixin
 
+tqdm = mute_tqdm_cls()
 logger = logging.getLogger(__name__)
 configure_unit_logger(fmt=LoggingFormat.CHECK_12)
 
@@ -23,25 +24,37 @@ class WikidataFreebaseID(DataClassJsonMixin):
     descr2: str
 
 
-mapping_file = Path('data/raw/Wikidata-ko/wikidata-20230920-freebase.jsonl')
+@dataclass
+class WikipediaDefinition(DataClassJsonMixin):
+    page_id: int
+    query: str
+    title: str
+    definition: str
+
+
 existing_dir = Path('data/raw/FB15k-237')
+changing_dir = Path('data/raw/FB15k-237-ko')
+changing_dir.mkdir(parents=True, exist_ok=True)
+
+mapping_file = Path('data/raw/Wiki-ko/wikidata-20230920-freebase.jsonl')
+defining_file = Path('data/raw/Wiki-ko/wikipedia-20230920-definition.jsonl')
 entities_file = existing_dir / "entities.txt"
 entity2text_file = existing_dir / "entity2text.txt"
 relation2text_file = existing_dir / "relation2text.txt"
 entity2textlong_file = existing_dir / "entity2textlong.txt"
-changing_dir = Path('data/raw/FB15k-237-ko')
-changing_dir.mkdir(parents=True, exist_ok=True)
-tqdm = mute_tqdm_cls()
 
 assert existing_dir.exists() and existing_dir.is_dir()
 assert changing_dir.exists() and changing_dir.is_dir()
+assert mapping_file.exists() and mapping_file.is_file()
+assert defining_file.exists() and defining_file.is_file()
 assert entities_file.exists() and entities_file.is_file()
 assert entity2text_file.exists() and entity2text_file.is_file()
 assert relation2text_file.exists() and relation2text_file.is_file()
 assert entity2textlong_file.exists() and entity2textlong_file.is_file()
-logger.info(f"Mapping file: {mapping_file}")
 logger.info(f"Existing dir: {existing_dir}")
 logger.info(f"Changing dir: {changing_dir}")
+logger.info(f"Mapping file: {mapping_file}")
+logger.info(f"Defining file: {defining_file}")
 
 with jsonlines.open(mapping_file) as reader:
     progress, interval = (
@@ -57,6 +70,20 @@ with jsonlines.open(mapping_file) as reader:
     logger.info(progress)
 logger.info(f"#mapping_to_freebase: {len(mapping_to_freebase)}")
 
+with jsonlines.open(defining_file) as reader:
+    progress, interval = (
+        tqdm(reader, total=num_lines(defining_file), unit="line", pre="*", desc="loading"),
+        100_000,
+    )
+    mapping_to_definition = dict()
+    for i, x in enumerate(progress):
+        if i > 0 and i % interval == 0:
+            logger.info(progress)
+        mapping = WikipediaDefinition.from_dict(x)
+        mapping_to_definition[mapping.title] = mapping.definition
+    logger.info(progress)
+logger.info(f"#mapping_to_definition: {len(mapping_to_definition)}")
+
 with entities_file.open() as reader:
     existing_entities = [x.strip() for x in reader]
 with entity2text_file.open() as reader:
@@ -70,11 +97,21 @@ changing_entities = [
     x for x in existing_entities if x in mapping_to_freebase
 ]
 changing_entity2text = {
-    x: mapping_to_freebase[x].label1 if mapping_to_freebase[x].label1 else mapping_to_freebase[x].label2 if mapping_to_freebase[x].label2 else y
+    x: (
+        mapping_to_freebase[x].title1 if mapping_to_freebase[x].title1
+        else mapping_to_freebase[x].title2 if mapping_to_freebase[x].title2
+        else y
+    )
     for x, y in existing_entity2text.items() if x in mapping_to_freebase
 }
-changing_entity2textlong = {  # TODO: 추후 Wikipedia 정의문으로 변경해보기!
-    x: mapping_to_freebase[x].descr1 if mapping_to_freebase[x].descr1 else mapping_to_freebase[x].descr2 if mapping_to_freebase[x].descr2 else y
+changing_entity2textlong = {
+    x: (
+        mapping_to_definition[mapping_to_freebase[x].title1]
+        if mapping_to_freebase[x].title1 and mapping_to_freebase[x].title1 in mapping_to_definition
+        else mapping_to_freebase[x].descr1 if mapping_to_freebase[x].descr1
+        else mapping_to_freebase[x].descr2 if mapping_to_freebase[x].descr2
+        else y
+    )
     for x, y in existing_entity2textlong.items() if x in mapping_to_freebase
 }
 

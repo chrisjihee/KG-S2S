@@ -82,15 +82,17 @@ def main():
     )
     printing_callback = PrintingCallback()
 
-    accelerator = 'gpu' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'auto'
-    devices = [int(configs.gpu)] if torch.cuda.is_available() else 'auto'
+    accelerator = configs.accelerator
+    precision = configs.precision
+    devices = configs.devices
     print()
     print("----------------------------------------------------------------------------------")
-    print(f" * pl.Trainer(accelerator={accelerator}, devices={devices})")
+    print(f" * pl.Trainer(accelerator={accelerator}, precision={precision}, devices={devices})")
     print("----------------------------------------------------------------------------------")
     print()
     trainer_params = {
         'devices': devices,
+        'precision': precision,
         'accelerator': accelerator,
         'max_epochs': configs.epochs,
         'logger': False,
@@ -130,7 +132,9 @@ if __name__ == '__main__':
     parser.add_argument('-dataset_path', type=str, default='./data/processed')
     parser.add_argument('-dataset', dest='dataset', default='WN18RR', help='Dataset to use, default: WN18RR')
     parser.add_argument('-model', default='T5Finetuner', help='Model Name')
-    parser.add_argument('-gpu', type=str, default='0', help='Set GPU Ids : Eg: For CPU = -1, For Single GPU = 0')
+    parser.add_argument('-devices', type=str, default='1', help='Number of training devices')
+    parser.add_argument('-precision', type=str, default='auto', help='Floating point precision')
+    parser.add_argument('-accelerator', type=str, default='auto', help='Type of training accelerator')
     parser.add_argument('-seed', dest='seed', default=41504, type=int, help='Seed for randomization')
     parser.add_argument('-num_workers', type=int, default=4, help='Number of processes to construct batches')
     parser.add_argument('-save_dir', type=str, default='', help='')

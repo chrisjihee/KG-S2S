@@ -135,7 +135,7 @@ if __name__ == '__main__':
     parser.add_argument('-model', default='T5Finetuner', help='Model Name')
     parser.add_argument('-strategy', type=str, default='auto', help='Distribution strategy')
     parser.add_argument('-precision', type=str, default='auto', help='Floating point precision')
-    parser.add_argument('-accelerator', type=str, default='auto', help='Type of training accelerator')
+    parser.add_argument('-accelerator', type=str, default='gpu', help='Type of training accelerator')
     parser.add_argument('-seed', dest='seed', default=41504, type=int, help='Seed for randomization')
     parser.add_argument('-num_workers', type=int, default=4, help='Number of processes to construct batches')
     parser.add_argument('-save_dir', type=str, default='', help='')

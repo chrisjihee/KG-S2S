@@ -73,6 +73,7 @@ class TrainDataset(Dataset):
 
         if self.configs.use_soft_prompt:
             input_index, soft_prompt_index, target_soft_prompt_index = get_soft_prompt_pos(self.configs, source_ids, target_ids, mode,
+                                                                                           src=src, tgt=tgt,
                                                                                            vertical_bar_token_id=self.vertical_bar_tok_id,
                                                                                            extra_id_0_token_id=self.extra_id_0_tok_id,
                                                                                            extra_id_1_token_id=self.extra_id_1_tok_id)
@@ -159,6 +160,7 @@ class TestDataset(Dataset):
         }
         if self.configs.use_soft_prompt:
             input_index, soft_prompt_index, _ = get_soft_prompt_pos(self.configs, source_ids, None, self.mode,
+                                                                    src=src, tgt=None,
                                                                     vertical_bar_token_id=self.vertical_bar_tok_id,
                                                                     extra_id_0_token_id=self.extra_id_0_tok_id,
                                                                     extra_id_1_token_id=self.extra_id_1_tok_id)

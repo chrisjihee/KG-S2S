@@ -110,8 +110,10 @@ venv.bak/
 /checkpoint
 /data/log
 /data/tmp
+/pretrained*
+/transformers-*
 *.out
 *.swp
 *.tmp
-/pretrained*
+*.tar.gz
 .DS_Store

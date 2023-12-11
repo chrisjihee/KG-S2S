@@ -1,7 +1,7 @@
 import torch
 import pytorch_lightning as pl
 from torch.utils.data import Dataset, DataLoader
-from transformers import T5Tokenizer
+from transformers import AutoTokenizer
 from helper import batchify, get_soft_prompt_pos
 
 
@@ -192,7 +192,10 @@ class DataModule(pl.LightningDataModule):
         self.prefix_trie_dict = prefix_trie_dict
         self.ground_truth_dict = ground_truth_dict
 
-        self.tokenizer = T5Tokenizer.from_pretrained(configs.pretrained_model)
+        tokenizer = AutoTokenizer.from_pretrained(configs.pretrained_model)
+        if '<extra_id_0>' not in tokenizer.additional_special_tokens:
+            tokenizer = AutoTokenizer.from_pretrained(configs.pretrained_model, additional_special_tokens=['<extra_id_0>', '<extra_id_1>'])
+        self.tokenizer = tokenizer
         self.train_both = None
         self.valid_tail, self.valid_head = None, None
         self.test_tail, self.test_head = None, None

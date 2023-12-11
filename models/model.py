@@ -28,10 +28,10 @@ class T5Finetuner(pl.LightningModule):
         self.next_token_dict = prefix_trie_dict['next_token_dict']
         if self.configs.tgt_descrip_max_length > 0:
             self.ent_token_ids_in_trie_with_descrip = prefix_trie_dict['ent_token_ids_in_trie_with_descrip']
-        self.T5ForConditionalGeneration = ModifiedT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
+        self.core_t5_model = ModifiedT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
 
         if self.configs.use_soft_prompt:
-            prompt_dim = self.T5ForConditionalGeneration.model_dim
+            prompt_dim = self.core_t5_model.model_dim
             self.rel_embed1 = nn.Embedding(self.configs.n_rel, prompt_dim)
             self.rel_embed2 = nn.Embedding(self.configs.n_rel, prompt_dim)
             if self.configs.use_rel_prompt_emb:
@@ -91,9 +91,9 @@ class T5Finetuner(pl.LightningModule):
                 src_mask = src_mask * dropout
 
         if self.configs.use_soft_prompt:
-            output = self.T5ForConditionalGeneration(inputs_embeds=inputs_emb, attention_mask=input_mask, labels=labels, output_hidden_states=True)
+            output = self.core_t5_model(inputs_embeds=inputs_emb, attention_mask=input_mask, labels=labels, output_hidden_states=True)
         else:
-            output = self.T5ForConditionalGeneration(input_ids=src_ids, attention_mask=src_mask, labels=labels)
+            output = self.core_t5_model(input_ids=src_ids, attention_mask=src_mask, labels=labels)
         loss = torch.mean(output.loss)
 
         self.history['loss'].append(loss.detach().item())
@@ -213,26 +213,26 @@ class T5Finetuner(pl.LightningModule):
                 soft_prompt_index = batched_data['soft_prompt_index']
                 inputs_emb, input_mask = self.get_soft_prompt_input_embed(src_ids, src_mask, self.ent_rel, input_index,
                                                                           soft_prompt_index)
-                outputs = self.T5ForConditionalGeneration.generate(inputs_embeds=inputs_emb,
-                                                                   attention_mask=input_mask,
-                                                                   return_dict_in_generate=True,
-                                                                   num_return_sequences=self.configs.num_beams,
-                                                                   max_length=self.configs.eval_tgt_max_length,
-                                                                   diversity_penalty=diversity_penalty,
-                                                                   num_beam_groups=num_beam_groups,
-                                                                   prefix_allowed_tokens_fn=prefix_allowed_tokens_fn,
-                                                                   num_beams=self.configs.num_beams,
-                                                                   bos_token_id=0,)
+                outputs = self.core_t5_model.generate(inputs_embeds=inputs_emb,
+                                                      attention_mask=input_mask,
+                                                      return_dict_in_generate=True,
+                                                      num_return_sequences=self.configs.num_beams,
+                                                      max_length=self.configs.eval_tgt_max_length,
+                                                      diversity_penalty=diversity_penalty,
+                                                      num_beam_groups=num_beam_groups,
+                                                      prefix_allowed_tokens_fn=prefix_allowed_tokens_fn,
+                                                      num_beams=self.configs.num_beams,
+                                                      bos_token_id=0, )
             else:
-                outputs = self.T5ForConditionalGeneration.generate(input_ids=src_ids,
-                                                                   attention_mask=src_mask,
-                                                                   return_dict_in_generate=True,
-                                                                   num_return_sequences=self.configs.num_beams,
-                                                                   max_length=self.configs.eval_tgt_max_length,
-                                                                   diversity_penalty=diversity_penalty,
-                                                                   num_beam_groups=num_beam_groups,
-                                                                   prefix_allowed_tokens_fn=prefix_allowed_tokens_fn,
-                                                                   num_beams=self.configs.num_beams,)
+                outputs = self.core_t5_model.generate(input_ids=src_ids,
+                                                      attention_mask=src_mask,
+                                                      return_dict_in_generate=True,
+                                                      num_return_sequences=self.configs.num_beams,
+                                                      max_length=self.configs.eval_tgt_max_length,
+                                                      diversity_penalty=diversity_penalty,
+                                                      num_beam_groups=num_beam_groups,
+                                                      prefix_allowed_tokens_fn=prefix_allowed_tokens_fn,
+                                                      num_beams=self.configs.num_beams, )
             raw_generated_text = self.trainer.datamodule.tokenizer.batch_decode(outputs.sequences)
             generated_text = _extract(raw_generated_text)
             assert len(generated_text) == self.configs.num_beams * len(src_ids)
@@ -245,21 +245,21 @@ class T5Finetuner(pl.LightningModule):
                 soft_prompt_index = batched_data['soft_prompt_index']
                 inputs_emb, input_mask = self.get_soft_prompt_input_embed(src_ids, src_mask, self.ent_rel, input_index,
                                                                           soft_prompt_index)
-                outputs = self.T5ForConditionalGeneration.generate(inputs_embeds=inputs_emb,
-                                                                   attention_mask=input_mask,
-                                                                   return_dict_in_generate=True,
-                                                                   num_return_sequences=self.configs.num_beams,
-                                                                   max_length=self.configs.eval_tgt_max_length,
-                                                                   output_scores=True,
-                                                                   do_sample=True)
+                outputs = self.core_t5_model.generate(inputs_embeds=inputs_emb,
+                                                      attention_mask=input_mask,
+                                                      return_dict_in_generate=True,
+                                                      num_return_sequences=self.configs.num_beams,
+                                                      max_length=self.configs.eval_tgt_max_length,
+                                                      output_scores=True,
+                                                      do_sample=True)
             else:
-                outputs = self.T5ForConditionalGeneration.generate(input_ids=src_ids,
-                                                                   attention_mask=src_mask,
-                                                                   return_dict_in_generate=True,
-                                                                   num_return_sequences=self.configs.num_beams,
-                                                                   max_length=self.configs.eval_tgt_max_length,
-                                                                   output_scores=True,
-                                                                   do_sample=True)
+                outputs = self.core_t5_model.generate(input_ids=src_ids,
+                                                      attention_mask=src_mask,
+                                                      return_dict_in_generate=True,
+                                                      num_return_sequences=self.configs.num_beams,
+                                                      max_length=self.configs.eval_tgt_max_length,
+                                                      output_scores=True,
+                                                      do_sample=True)
 
             raw_generated_text = self.trainer.datamodule.tokenizer.batch_decode(outputs.sequences)
             generated_text = _extract(raw_generated_text)
@@ -297,7 +297,7 @@ class T5Finetuner(pl.LightningModule):
         # soft_prompt_emb .shape: (batch_size, 4, model_dim)
         soft_prompt_emb = torch.cat([ent_emb, rel_emb], dim=1)
         # inputs_emb .shape: (batch_size, seq_len, model_dim)
-        inputs_emb = self.T5ForConditionalGeneration.encoder.embed_tokens(src_ids)
+        inputs_emb = self.core_t5_model.encoder.embed_tokens(src_ids)
         batch_size, seq_len, model_dim = inputs_emb.shape
         # indicator_in_batch .shape: (batch_size, 1) .examples: torch.LongTensor([[0], [1], [2], [3]])
         indicator_in_batch = torch.arange(batch_size).type_as(ent_ids).unsqueeze(-1)

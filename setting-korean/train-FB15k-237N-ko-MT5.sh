@@ -11,4 +11,4 @@ python3 main.py -dataset FB15k-237N-ko \
                 -batch_size 32 \
                 -skip_n_val_epoch 0 \
                 -epoch 10 \
-                -gpu 0
+                -gpu 6

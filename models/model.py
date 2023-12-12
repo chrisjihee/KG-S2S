@@ -311,11 +311,6 @@ class T5Finetuner(pl.LightningModule):
         soft_prompt_emb = torch.cat([ent_emb, rel_emb], dim=1)
         # inputs_emb .shape: (batch_size, seq_len, model_dim)
         inputs_emb = self.core_t5_model.encoder.embed_tokens(src_ids)
-        print()
-        print("----------------------------------------------------------------------------------")
-        print(f"inputs_emb={inputs_emb}")
-        print("----------------------------------------------------------------------------------")
-        print()
         batch_size, seq_len, model_dim = inputs_emb.shape
         # indicator_in_batch .shape: (batch_size, 1) .examples: torch.LongTensor([[0], [1], [2], [3]])
         indicator_in_batch = torch.arange(batch_size).type_as(ent_ids).unsqueeze(-1)

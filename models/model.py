@@ -1,15 +1,18 @@
 import os
-import re
 import random
+import re
+from collections import Counter
+
+import pytorch_lightning as pl
 import torch
 import torch.nn as nn
-import pytorch_lightning as pl
+
+from helper import get_performance
+from models.modified_model.GBSWT5 import GBSWT5ForConditionalGeneration
 from models.modified_model.modified_T5 import ModifiedT5ForConditionalGeneration
 from models.modified_model.modified_mT5 import ModifiedMT5ForConditionalGeneration
 from transformers import AutoConfig
 from transformers.optimization import Adafactor
-from collections import Counter
-from helper import get_performance
 
 
 class T5Finetuner(pl.LightningModule):
@@ -35,6 +38,8 @@ class T5Finetuner(pl.LightningModule):
             self.core_t5_model = ModifiedT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
         elif config.model_type == "mt5":
             self.core_t5_model = ModifiedMT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
+        elif config.model_type == "gbswt5":
+            self.core_t5_model = GBSWT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
         else:
             raise ValueError('Invalid model type: [%s] %s' % (config.model_type, configs.pretrained_model))
 
@@ -306,6 +311,11 @@ class T5Finetuner(pl.LightningModule):
         soft_prompt_emb = torch.cat([ent_emb, rel_emb], dim=1)
         # inputs_emb .shape: (batch_size, seq_len, model_dim)
         inputs_emb = self.core_t5_model.encoder.embed_tokens(src_ids)
+        print()
+        print("----------------------------------------------------------------------------------")
+        print(f"inputs_emb={inputs_emb}")
+        print("----------------------------------------------------------------------------------")
+        print()
         batch_size, seq_len, model_dim = inputs_emb.shape
         # indicator_in_batch .shape: (batch_size, 1) .examples: torch.LongTensor([[0], [1], [2], [3]])
         indicator_in_batch = torch.arange(batch_size).type_as(ent_ids).unsqueeze(-1)

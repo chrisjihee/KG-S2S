@@ -24,10 +24,11 @@ from transformers.modeling_outputs import (
 )
 from transformers.models.t5.modeling_t5 import (
     T5LayerNorm, T5Block, T5Stack,
-    T5Model, T5PreTrainedModel, T5ForConditionalGeneration, T5EncoderModel,
+    T5Model, T5PreTrainedModel, T5EncoderModel,
     T5DenseActDense, T5DenseGatedActDense, T5Attention,
     T5_START_DOCSTRING
 )
+from models.modified_model.modified_T5 import ModifiedT5ForConditionalGeneration
 
 from .configuration_gbst5 import GBSWT5Config
 from .gbst import GBSWT
@@ -652,16 +653,12 @@ class GBSWT5ForConditionalGeneration(GBSWT5PreTrainedModel):
 
         loss = None
         if labels is not None:
-            loss_fct = nn.CrossEntropyLoss(ignore_index=-100)
-            # move labels to correct device to enable PP
-            labels = labels.to(lm_logits.device)
+            ## The scripts in between is the modification we conduct from the original T5 model (version 4.2.2)
+            loss_fct = nn.CrossEntropyLoss(ignore_index=-100, reduction='none')
             loss = loss_fct(lm_logits.view(-1, lm_logits.size(-1)), labels.view(-1))
-            # add z_loss for computational stability in bf16 amp.
-            # see https://github.com/huggingface/transformers/pull/10956#issuecomment-820712267
-            if self.config.z_loss != 0.0:
-                log_z = lm_logits.view(-1).logsumexp(-1)
-                loss += self.config.z_loss * log_z.square()
-
+            loss = loss.view(lm_logits.size(0), lm_logits.size(1))
+            loss = torch.mean(loss, dim=-1)
+            ####################################################################################################
         if not return_dict:
             output = (lm_logits,) + decoder_outputs[1:] + encoder_outputs
             return ((loss,) + output) if loss is not None else output
@@ -679,16 +676,16 @@ class GBSWT5ForConditionalGeneration(GBSWT5PreTrainedModel):
         )
 
 
-GBSWT5ForConditionalGeneration.parallelize = T5ForConditionalGeneration.parallelize
-GBSWT5ForConditionalGeneration.deparallelize = T5ForConditionalGeneration.deparallelize
-GBSWT5ForConditionalGeneration.get_input_embeddings = T5ForConditionalGeneration.get_input_embeddings
-GBSWT5ForConditionalGeneration.set_input_embeddings = T5ForConditionalGeneration.set_input_embeddings
-GBSWT5ForConditionalGeneration.get_output_embeddings = T5ForConditionalGeneration.get_output_embeddings
-GBSWT5ForConditionalGeneration.set_output_embeddings = T5ForConditionalGeneration.set_output_embeddings
-GBSWT5ForConditionalGeneration.get_encoder = T5ForConditionalGeneration.get_encoder
-GBSWT5ForConditionalGeneration.prepare_inputs_for_generation = T5ForConditionalGeneration.prepare_inputs_for_generation
-GBSWT5ForConditionalGeneration.prepare_decoder_input_ids_from_labels = T5ForConditionalGeneration.prepare_decoder_input_ids_from_labels
-GBSWT5ForConditionalGeneration._reorder_cache = T5ForConditionalGeneration._reorder_cache
+GBSWT5ForConditionalGeneration.parallelize = ModifiedT5ForConditionalGeneration.parallelize
+GBSWT5ForConditionalGeneration.deparallelize = ModifiedT5ForConditionalGeneration.deparallelize
+GBSWT5ForConditionalGeneration.get_input_embeddings = ModifiedT5ForConditionalGeneration.get_input_embeddings
+GBSWT5ForConditionalGeneration.set_input_embeddings = ModifiedT5ForConditionalGeneration.set_input_embeddings
+GBSWT5ForConditionalGeneration.get_output_embeddings = ModifiedT5ForConditionalGeneration.get_output_embeddings
+GBSWT5ForConditionalGeneration.set_output_embeddings = ModifiedT5ForConditionalGeneration.set_output_embeddings
+GBSWT5ForConditionalGeneration.get_encoder = ModifiedT5ForConditionalGeneration.get_encoder
+GBSWT5ForConditionalGeneration.prepare_inputs_for_generation = ModifiedT5ForConditionalGeneration.prepare_inputs_for_generation
+GBSWT5ForConditionalGeneration.prepare_decoder_input_ids_from_labels = ModifiedT5ForConditionalGeneration.prepare_decoder_input_ids_from_labels
+GBSWT5ForConditionalGeneration._reorder_cache = ModifiedT5ForConditionalGeneration._reorder_cache
 GBSWT5ForConditionalGeneration._prune_heads = T5Model._prune_heads
 
 

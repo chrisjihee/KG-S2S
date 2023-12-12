@@ -8,6 +8,7 @@ from pytorch_lightning.callbacks import ModelCheckpoint
 from transformers import AutoConfig
 from transformers import AutoTokenizer
 from models.model import T5Finetuner
+from models.modified_model import GBSWT5
 from data import DataModule
 from helper import get_num, read, read_name, read_file, get_ground_truth, get_next_token_dict, construct_prefix_trie
 from callbacks import PrintingCallback
@@ -100,7 +101,7 @@ def main():
     print("----------------------------------------------------------------------------------")
     print()
     trainer_params = {
-        'devices': 1,
+        'devices': 1,  # single GPU only
         'strategy': strategy,
         'precision': precision,
         'accelerator': accelerator,
@@ -143,7 +144,7 @@ if __name__ == '__main__':
     parser.add_argument('-dataset', dest='dataset', default='WN18RR', help='Dataset to use, default: WN18RR')
     parser.add_argument('-model', default='T5Finetuner', help='Model Name')
     parser.add_argument('-strategy', type=str, default='auto', help='Distribution strategy')
-    parser.add_argument('-precision', type=str, default='auto', help='Floating point precision')
+    parser.add_argument('-precision', type=str, default='32', help='Floating point precision')
     parser.add_argument('-accelerator', type=str, default='gpu', help='Type of training accelerator')
     parser.add_argument('-seed', dest='seed', default=41504, type=int, help='Seed for randomization')
     parser.add_argument('-num_workers', type=int, default=4, help='Number of processes to construct batches')

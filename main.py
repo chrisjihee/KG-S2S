@@ -22,9 +22,18 @@ def main():
 
     ## construct name list
     original_ent_name_list, rel_name_list = read_name(configs, configs.dataset_path, configs.dataset)
+    config = AutoConfig.from_pretrained(configs.pretrained_model)
     tokenizer = AutoTokenizer.from_pretrained(configs.pretrained_model)
+    print()
+    print("----------------------------------------------------------------------------------")
+    print(f" - pretrained_model.model_type: {config.model_type}")
+    print(f" - tokenizer.additional_special_tokens: {tokenizer.additional_special_tokens}")
     if '<extra_id_0>' not in tokenizer.additional_special_tokens:
         tokenizer = AutoTokenizer.from_pretrained(configs.pretrained_model, additional_special_tokens=['<extra_id_0>', '<extra_id_1>'])
+    extra_id_0_tok_id = tokenizer('<extra_id_0>').input_ids[0]
+    print(f" - extra_id_0_tok_id: {extra_id_0_tok_id}")
+    print("----------------------------------------------------------------------------------")
+    print()
     description_list = read_file(configs, configs.dataset_path, configs.dataset, 'entityid2description.txt', 'descrip')
     print('tokenizing entities...')
     src_description_list = tokenizer.batch_decode([descrip[:-1] for descrip in tokenizer(description_list, max_length=configs.src_descrip_max_length, truncation=True).input_ids])
@@ -37,10 +46,10 @@ def main():
     if configs.tgt_descrip_max_length > 0:
         ent_token_ids_in_trie_with_descrip = tokenizer(['<extra_id_0>' + ent_name + '[' + tgt_description_list[i] + ']' + '<extra_id_1>' for i, ent_name in enumerate(original_ent_name_list)], max_length=configs.train_tgt_max_length, truncation=True).input_ids
         prefix_trie = construct_prefix_trie(ent_token_ids_in_trie_with_descrip)
-        neg_candidate_mask, next_token_dict = get_next_token_dict(configs, ent_token_ids_in_trie_with_descrip, prefix_trie)
+        neg_candidate_mask, next_token_dict = get_next_token_dict(configs, ent_token_ids_in_trie_with_descrip, prefix_trie, extra_id_0_token_id=extra_id_0_tok_id)
     else:
         prefix_trie = construct_prefix_trie(ent_token_ids_in_trie)
-        neg_candidate_mask, next_token_dict = get_next_token_dict(configs, ent_token_ids_in_trie, prefix_trie)
+        neg_candidate_mask, next_token_dict = get_next_token_dict(configs, ent_token_ids_in_trie, prefix_trie, extra_id_0_token_id=extra_id_0_tok_id)
     ent_name_list = tokenizer.batch_decode([tokens[1:-2] for tokens in ent_token_ids_in_trie])
     name_list_dict = {
         'original_ent_name_list': original_ent_name_list,

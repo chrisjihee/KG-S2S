@@ -69,11 +69,11 @@ def get_ground_truth(configs, triples):
     return tail_ground_truth, head_ground_truth
 
 
-def get_next_token_dict(configs, ent_token_ids_in_trie, prefix_trie):
+def get_next_token_dict(configs, ent_token_ids_in_trie, prefix_trie, extra_id_0_token_id):
     neg_candidate_mask = []
-    next_token_dict = {(): [32099] * configs.n_ent}
+    next_token_dict = {(): [extra_id_0_token_id] * configs.n_ent}
     for ent_id in tqdm(range(configs.n_ent)):
-        rows, cols = [0], [32099]
+        rows, cols = [0], [extra_id_0_token_id]
         input_ids = ent_token_ids_in_trie[ent_id]
         for pos_id in range(1, len(input_ids)):
             cur_input_ids = input_ids[:pos_id]

@@ -8,7 +8,6 @@ from pytorch_lightning.callbacks import ModelCheckpoint
 from transformers import AutoConfig
 from transformers import AutoTokenizer
 from models.model import T5Finetuner
-from models.modified_model import GBSWT5
 from data import DataModule
 from helper import get_num, read, read_name, read_file, get_ground_truth, get_next_token_dict, construct_prefix_trie
 from callbacks import PrintingCallback

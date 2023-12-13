@@ -8,7 +8,6 @@ import torch
 import torch.nn as nn
 
 from helper import get_performance
-from models.modified_model.GBSWT5 import GBSWT5ForConditionalGeneration
 from models.modified_model.modified_T5 import ModifiedT5ForConditionalGeneration
 from models.modified_model.modified_mT5 import ModifiedMT5ForConditionalGeneration
 from transformers import AutoConfig
@@ -38,8 +37,6 @@ class T5Finetuner(pl.LightningModule):
             self.core_t5_model = ModifiedT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
         elif config.model_type == "mt5":
             self.core_t5_model = ModifiedMT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
-        elif config.model_type == "gbswt5":
-            self.core_t5_model = GBSWT5ForConditionalGeneration.from_pretrained(configs.pretrained_model)
         else:
             raise ValueError('Invalid model type: [%s] %s' % (config.model_type, configs.pretrained_model))
 

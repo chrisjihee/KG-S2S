@@ -143,7 +143,7 @@ if __name__ == '__main__':
     parser.add_argument('-save_dir', type=str, default='', help='')
 
     parser.add_argument('-pretrained_model', type=str, default='t5-base', help='')
-    parser.add_argument('-batch_size', default=4, type=int, help='Batch size')
+    parser.add_argument('-batch_size', default=8, type=int, help='Batch size')
     parser.add_argument('-val_batch_size', default=4, type=int, help='Batch size')
     parser.add_argument('-num_beams', default=40, type=int, help='Number of samples from beam search')
     parser.add_argument('-num_beam_groups', default=1, type=int, help='')

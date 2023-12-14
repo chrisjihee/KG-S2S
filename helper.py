@@ -6,8 +6,6 @@ from collections import Counter
 import numpy as np
 import pandas as pd
 import torch
-import torch.nn as nn
-import torch.nn.init as init
 from torch.nn.utils.rnn import pad_sequence
 import pygtrie
 
@@ -155,7 +153,6 @@ def batchify(output_dict, key, padding_value=None, return_list=False):
 def _get_performance(ranks, dataset):
     ranks = np.array(ranks, dtype=np.float)
     out = dict()
-    out['mr'] = ranks.mean(axis=0)
     out['mrr'] = (1. / ranks).mean(axis=0)
     out['hit1'] = np.sum(ranks == 1, axis=0) / len(ranks)
     out['hit3'] = np.sum(ranks <= 3, axis=0) / len(ranks)
@@ -168,7 +165,6 @@ def _get_performance(ranks, dataset):
 def get_performance(model, tail_ranks, head_ranks):
     tail_out = _get_performance(tail_ranks, model.configs.dataset)
     head_out = _get_performance(head_ranks, model.configs.dataset)
-    mr = np.array([tail_out['mr'], head_out['mr']])
     mrr = np.array([tail_out['mrr'], head_out['mrr']])
     hit1 = np.array([tail_out['hit1'], head_out['hit1']])
     hit3 = np.array([tail_out['hit3'], head_out['hit3']])
@@ -178,13 +174,13 @@ def get_performance(model, tail_ranks, head_ranks):
         val_mrr = tail_out['mrr'].item()
         model.log('val_mrr', val_mrr)
         hit5 = np.array([tail_out['hit5'], head_out['hit5']])
-        perf = {'mrr': mrr, 'mr': mr, 'hit@1': hit1, 'hit@3': hit3, 'hit@5': hit5, 'hit@10': hit10}
+        perf = {'mrr': mrr, 'hit@1': hit1, 'hit@3': hit3, 'hit@5': hit5, 'hit@10': hit10}
     else:
         val_mrr = mrr.mean().item()
         model.log('val_mrr', val_mrr)
-        perf = {'mrr': mrr, 'mr': mr, 'hit@1': hit1, 'hit@3': hit3, 'hit@10': hit10}
-    perf = pd.DataFrame(perf, index=['tail ranking', 'head ranking'])
-    perf.loc['mean ranking'] = perf.mean(axis=0)
+        perf = {'mrr': mrr, 'hit@1': hit1, 'hit@3': hit3, 'hit@10': hit10}
+    perf = pd.DataFrame(perf, index=['tail', 'head'])
+    perf.loc['mean'] = perf.mean(axis=0)
     for hit in ['hit@1', 'hit@3', 'hit@5', 'hit@10']:
         if hit in list(perf.columns):
             perf[hit] = perf[hit].apply(lambda x: '%.2f%%' % (x * 100))

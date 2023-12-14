@@ -111,7 +111,8 @@ venv.bak/
 /data/log
 /data/tmp
 /pretrained*
-/transformers-*
+/transformers*
+/pytorch-lightning*
 *.out
 *.swp
 *.tmp

@@ -1,16 +1,19 @@
-import os
 import argparse
-from datetime import datetime
+import os
 import warnings
-import torch
+from datetime import datetime
+from pathlib import Path
+
 import pytorch_lightning as pl
+import torch
 from pytorch_lightning.callbacks import ModelCheckpoint
 from transformers import AutoConfig
 from transformers import AutoTokenizer
-from models.model import T5Finetuner
+
+from callbacks import PrintingCallback
 from data import DataModule
 from helper import get_num, read, read_name, read_file, get_ground_truth, get_next_token_dict, construct_prefix_trie
-from callbacks import PrintingCallback
+from models.model import T5Finetuner
 
 
 def main():
@@ -174,7 +177,12 @@ if __name__ == '__main__':
     configs.vocab_size = AutoConfig.from_pretrained(configs.pretrained_model).vocab_size
     configs.model_dim = AutoConfig.from_pretrained(configs.pretrained_model).d_model
     if configs.save_dir == '':
-        configs.save_dir = os.path.join('./checkpoint', configs.dataset + '-' + str(datetime.now()))
+        configs.save_dir = os.path.join('./checkpoint',
+                                        '='.join([
+                                            configs.dataset,
+                                            Path(configs.pretrained_model).name,
+                                            datetime.now().strftime('%m%d.%H%M%S')
+                                        ]))
     os.makedirs(configs.save_dir, exist_ok=True)
     print(configs, flush=True)
 

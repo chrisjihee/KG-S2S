@@ -22,19 +22,19 @@ def main():
 
     ## construct name list
     original_ent_name_list, rel_name_list = read_name(configs, configs.dataset_path, configs.dataset)
+    description_list = read_file(configs, configs.dataset_path, configs.dataset, 'entityid2description.txt', 'descrip')
     config = AutoConfig.from_pretrained(configs.pretrained_model)
     tokenizer = AutoTokenizer.from_pretrained(configs.pretrained_model)
+    if '<extra_id_0>' not in tokenizer.additional_special_tokens:
+        tokenizer = AutoTokenizer.from_pretrained(configs.pretrained_model, additional_special_tokens=['<extra_id_0>', '<extra_id_1>'])
+    extra_id_0_tok_id = tokenizer('<extra_id_0>').input_ids[0]
     print()
     print("----------------------------------------------------------------------------------")
     print(f" - pretrained_model.model_type: {config.model_type}")
     print(f" - tokenizer.additional_special_tokens: {tokenizer.additional_special_tokens}")
-    if '<extra_id_0>' not in tokenizer.additional_special_tokens:
-        tokenizer = AutoTokenizer.from_pretrained(configs.pretrained_model, additional_special_tokens=['<extra_id_0>', '<extra_id_1>'])
-    extra_id_0_tok_id = tokenizer('<extra_id_0>').input_ids[0]
     print(f" - extra_id_0_tok_id: {extra_id_0_tok_id}")
     print("----------------------------------------------------------------------------------")
     print()
-    description_list = read_file(configs, configs.dataset_path, configs.dataset, 'entityid2description.txt', 'descrip')
     print('tokenizing entities...')
     src_description_list = tokenizer.batch_decode([descrip[:-1] for descrip in tokenizer(description_list, max_length=configs.src_descrip_max_length, truncation=True).input_ids])
     tgt_description_list = tokenizer.batch_decode([descrip[:-1] for descrip in tokenizer(description_list, max_length=configs.tgt_descrip_max_length, truncation=True).input_ids])
@@ -91,21 +91,14 @@ def main():
     )
     printing_callback = PrintingCallback()
 
-    accelerator = configs.accelerator
-    precision = configs.precision
-    print()
-    print("----------------------------------------------------------------------------------")
-    print(f" * pl.Trainer(accelerator={accelerator}, precision={precision})")
-    print("----------------------------------------------------------------------------------")
-    print()
     trainer_params = {
         'devices': 1,  # single GPU only
-        'precision': precision,
-        'accelerator': accelerator,
+        'precision': configs.precision,
+        'accelerator': configs.accelerator,
         'max_epochs': configs.epochs,
         'logger': False,
         'num_sanity_val_steps': 0,
-        'check_val_every_n_epoch': 1,
+        'check_val_every_n_epoch': 3,
         'enable_progress_bar': True,
         'enable_checkpointing': True,
         'callbacks': [
@@ -142,19 +135,19 @@ if __name__ == '__main__':
     parser.add_argument('-model', default='T5Finetuner', help='Model Name')
     parser.add_argument('-precision', type=str, default='32', help='Floating point precision')
     parser.add_argument('-accelerator', type=str, default='gpu', help='Type of training accelerator')
-    parser.add_argument('-seed', dest='seed', default=6382, type=int, help='Seed for randomization')
+    parser.add_argument('-seed', dest='seed', default=41504, type=int, help='Seed for randomization')
     parser.add_argument('-num_workers', type=int, default=4, help='Number of processes to construct batches')
     parser.add_argument('-save_dir', type=str, default='', help='')
 
     parser.add_argument('-pretrained_model', type=str, default='t5-base', help='')
-    parser.add_argument('-batch_size', default=8, type=int, help='Batch size')
-    parser.add_argument('-val_batch_size', default=8, type=int, help='Batch size')
+    parser.add_argument('-batch_size', default=4, type=int, help='Batch size')
+    parser.add_argument('-val_batch_size', default=4, type=int, help='Batch size')
     parser.add_argument('-num_beams', default=40, type=int, help='Number of samples from beam search')
     parser.add_argument('-num_beam_groups', default=1, type=int, help='')
     parser.add_argument('-src_max_length', default=512, type=int, help='')
     parser.add_argument('-train_tgt_max_length', default=512, type=int, help='')
     parser.add_argument('-eval_tgt_max_length', default=90, type=int, help='')
-    parser.add_argument('-epoch', dest='epochs', type=int, default=5, help='Number of epochs')
+    parser.add_argument('-epoch', dest='epochs', type=int, default=30, help='Number of epochs')
     parser.add_argument('-lr', type=float, default=0.001, help='Starting Learning Rate')
     parser.add_argument('-diversity_penalty', default=0., type=float, help='')
 
@@ -167,7 +160,7 @@ if __name__ == '__main__':
     parser.add_argument('-tgt_descrip_max_length', default=0, type=int, help='')
     parser.add_argument('-use_soft_prompt', action='store_true', help='')
     parser.add_argument('-use_rel_prompt_emb', action='store_true', help='')
-    parser.add_argument('-skip_n_val_epoch', default=0, type=int, help='')
+    parser.add_argument('-skip_n_val_epoch', default=3, type=int, help='')
     parser.add_argument('-seq_dropout', default=0., type=float, help='')
     parser.add_argument('-temporal', action='store_true', help='')
     configs = parser.parse_args()

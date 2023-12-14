@@ -4,7 +4,7 @@
 python3 main.py -dataset FB15k-237N-ko \
                 -lr 0.001 \
                 -precision 32 \
-                -epoch 50 \
+                -epoch 15 \
                 -batch_size 4 \
                 -val_batch_size 2 \
                 -num_beams 40 \

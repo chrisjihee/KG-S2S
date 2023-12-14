@@ -83,30 +83,33 @@ def main():
     datamodule = DataModule(configs, train_triples, valid_triples, test_triples, name_list_dict, prefix_trie_dict, ground_truth_dict)
     print('datamodule construction done.', flush=True)
 
+    print()
+    print("----------------------------------------------------------------------------------")
+    print(f" * pl.Trainer(accelerator={configs.accelerator}, precision={configs.precision}, max_epochs={configs.epochs}, every_n_epoch={configs.check_every_n_epochs})")
+    print("----------------------------------------------------------------------------------")
+    print()
     checkpoint_callback = ModelCheckpoint(
-        monitor='val_mrr',
         dirpath=configs.save_dir,
         filename=configs.dataset + '-{epoch:03d}-{' + 'val_mrr' + ':.4f}',
-        mode='max'
+        every_n_epochs=configs.check_every_n_epochs,
+        save_top_k=5,
+        monitor='val_mrr',
+        mode='max',
     )
-    printing_callback = PrintingCallback()
-
-    trainer_params = {
-        'devices': 1,  # single GPU only
-        'precision': configs.precision,
-        'accelerator': configs.accelerator,
-        'max_epochs': configs.epochs,
-        'logger': False,
-        'num_sanity_val_steps': 0,
-        'check_val_every_n_epoch': 3,
-        'enable_progress_bar': True,
-        'enable_checkpointing': True,
-        'callbacks': [
+    trainer = pl.Trainer(
+        devices=1,
+        precision=configs.precision,
+        accelerator=configs.accelerator,
+        max_epochs=configs.epochs,
+        check_val_every_n_epoch=configs.check_every_n_epochs,
+        num_sanity_val_steps=0,
+        enable_progress_bar=True,
+        logger=False,
+        callbacks=[
             checkpoint_callback,
-            printing_callback
+            PrintingCallback(),
         ],
-    }
-    trainer = pl.Trainer(**trainer_params)
+    )
     kw_args = {
         'ground_truth_dict': ground_truth_dict,
         'name_list_dict': name_list_dict,
@@ -136,7 +139,7 @@ if __name__ == '__main__':
     parser.add_argument('-precision', type=str, default='32', help='Floating point precision')
     parser.add_argument('-accelerator', type=str, default='gpu', help='Type of training accelerator')
     parser.add_argument('-seed', dest='seed', default=41504, type=int, help='Seed for randomization')
-    parser.add_argument('-num_workers', type=int, default=4, help='Number of processes to construct batches')
+    parser.add_argument('-num_workers', type=int, default=12, help='Number of processes to construct batches')
     parser.add_argument('-save_dir', type=str, default='', help='')
 
     parser.add_argument('-pretrained_model', type=str, default='t5-base', help='')
@@ -160,7 +163,7 @@ if __name__ == '__main__':
     parser.add_argument('-tgt_descrip_max_length', default=0, type=int, help='')
     parser.add_argument('-use_soft_prompt', action='store_true', help='')
     parser.add_argument('-use_rel_prompt_emb', action='store_true', help='')
-    parser.add_argument('-skip_n_val_epoch', default=3, type=int, help='')
+    parser.add_argument('-check_every_n_epochs', default=3, type=int, help='')
     parser.add_argument('-seq_dropout', default=0., type=float, help='')
     parser.add_argument('-temporal', action='store_true', help='')
     configs = parser.parse_args()

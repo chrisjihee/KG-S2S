@@ -110,8 +110,6 @@ class T5Finetuner(pl.LightningModule):
         return {'loss': loss}
 
     def validation_step(self, batched_data, batch_idx, dataset_idx):
-        if self.current_epoch < self.configs.skip_n_val_epoch:
-            return
         # src_ids, src_mask: .shape: (batch_size, padded_seq_len) .type: torch.tensor
         src_ids = batched_data['source_ids']
         src_mask = batched_data['source_mask']
@@ -350,8 +348,6 @@ class T5Finetuner(pl.LightningModule):
                         ii += 1
 
     def validation_epoch_end(self, outs):
-        if self.current_epoch < self.configs.skip_n_val_epoch:
-            return
         pred_tail_out, pred_head_out = outs
         agg_tail_out, agg_head_out, agg_total_out = dict(), dict(), dict()
         for out in pred_tail_out:
@@ -372,9 +368,11 @@ class T5Finetuner(pl.LightningModule):
         del agg_tail_out['ranks']
         del agg_head_out['ranks']
 
-        print()
         perf = get_performance(self, tail_ranks, head_ranks)
-        print(perf)
+        print(flush=True)
+        print(flush=True)
+        print(flush=True)
+        print(perf, flush=True)
 
     def test_step(self, batched_data, batch_idx, dataset_idx):
         return self.validation_step(batched_data, batch_idx, dataset_idx)

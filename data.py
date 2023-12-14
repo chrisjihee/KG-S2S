@@ -101,16 +101,16 @@ class TestDataset(Dataset):
     def __init__(self, configs, tokenizer, test_triples, name_list_dict, prefix_trie_dict, ground_truth_dict, mode):  # mode: {tail, head}
         self.configs = configs
         self.test_triples = test_triples
+        self.tokenizer = tokenizer
+        self.vertical_bar_tok_id = tokenizer('|').input_ids[0]
+        self.extra_id_0_tok_id = tokenizer('<extra_id_0>').input_ids[0]
+        self.extra_id_1_tok_id = tokenizer('<extra_id_1>').input_ids[0]
         self.original_ent_name_list = name_list_dict['original_ent_name_list']
         self.ent_name_list = name_list_dict['ent_name_list']
         self.rel_name_list = name_list_dict['rel_name_list']
         self.src_description_list = name_list_dict['src_description_list']
         self.tgt_description_list = name_list_dict['tgt_description_list']
         self.ent_token_ids_in_trie = prefix_trie_dict['ent_token_ids_in_trie']
-        self.tokenizer = tokenizer
-        self.vertical_bar_tok_id = tokenizer('|').input_ids[0]
-        self.extra_id_0_tok_id = tokenizer('<extra_id_0>').input_ids[0]
-        self.extra_id_1_tok_id = tokenizer('<extra_id_1>').input_ids[0]
         self.mode = mode
 
     def __len__(self):
@@ -123,7 +123,6 @@ class TestDataset(Dataset):
         else:
             head, tail, rel = test_triple
         head_name, tail_name, rel_name = self.original_ent_name_list[head], self.original_ent_name_list[tail], self.rel_name_list[rel]
-
         if self.configs.src_descrip_max_length > 0:
             head_descrip, tail_descrip = '[' + self.src_description_list[head] + ']', '[' + self.src_description_list[tail] + ']'
         else:

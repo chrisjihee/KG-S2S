@@ -14,4 +14,4 @@ python3 main.py -dataset FB15k-237N-ko \
                 -src_descrip_max_length 200 \
                 -tgt_descrip_max_length 200 \
                 -eval_tgt_max_length 75 \
-                -pretrained_model google/mt5-base
+                -pretrained_model google/mt5-large

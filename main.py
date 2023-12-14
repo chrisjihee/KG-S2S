@@ -150,7 +150,7 @@ if __name__ == '__main__':
     parser.add_argument('-src_max_length', default=512, type=int, help='')
     parser.add_argument('-train_tgt_max_length', default=512, type=int, help='')
     parser.add_argument('-eval_tgt_max_length', default=90, type=int, help='')
-    parser.add_argument('-epoch', dest='epochs', type=int, default=30, help='Number of epochs')
+    parser.add_argument('-epoch', dest='epochs', type=int, default=50, help='Number of epochs')
     parser.add_argument('-lr', type=float, default=0.001, help='Starting Learning Rate')
     parser.add_argument('-diversity_penalty', default=0., type=float, help='')
 

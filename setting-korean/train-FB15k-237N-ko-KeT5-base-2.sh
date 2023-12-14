@@ -5,8 +5,8 @@ python3 main.py -dataset FB15k-237N-ko \
                 -lr 0.0005 \
                 -precision bf16 \
                 -epoch 50 \
-                -batch_size 8 \
-                -val_batch_size 4 \
+                -batch_size 4 \
+                -val_batch_size 2 \
                 -num_beams 40 \
                 -seq_dropout 0.2 \
                 -use_soft_prompt \

@@ -17,6 +17,7 @@ python3 main.py -dataset FB15k-237N-ko \
                 -pretrained_model KETI-AIR/ke-t5-base-ko
 
 
+
 (KG-S2S) chris@chris137:/dat/proj/KG-S2S$ export CUDA_VISIBLE_DEVICES=3
 (KG-S2S) chris@chris137:/dat/proj/KG-S2S$ setting-korean/train-FB15k-237N-ko-KeT5-base-4.sh
 Namespace(dataset_path='./data/processed', dataset='FB15k-237N-ko', model='T5Finetuner', precision='32', accelerator='gpu', seed=41504, num_workers=12, save_dir='./checkpoint/FB15k-237N-ko=ke-t5-base-ko=1214.222432', pretrained_model='KETI-AIR/ke-t5-base-ko', batch_size=4, val_batch_size=2, num_beams=40, num_beam_groups=1, src_max_length=512, train_tgt_max_length=512, eval_tgt_max_length=75, epochs=15, lr=0.0005, diversity_penalty=0.0, model_path='', optim='Adam', decoder='beam_search', log_text=False, use_prefix_search=False, src_descrip_max_length=200, tgt_descrip_max_length=200, use_soft_prompt=True, use_rel_prompt_emb=True, check_every_n_epochs=3, seq_dropout=0.2, temporal=False, n_ent=12068, n_rel=90, vocab_size=64128, model_dim=768)

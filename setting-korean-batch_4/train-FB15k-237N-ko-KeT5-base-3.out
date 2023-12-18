@@ -17,6 +17,7 @@ python3 main.py -dataset FB15k-237N-ko \
                 -pretrained_model KETI-AIR/ke-t5-base-ko
 
 
+
 (KG-S2S) chris@chris137:/dat/proj/KG-S2S$ export CUDA_VISIBLE_DEVICES=2
 (KG-S2S) chris@chris137:/dat/proj/KG-S2S$ setting-korean/train-FB15k-237N-ko-KeT5-base-3.sh
 Downloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 602/602 [00:00<00:00, 1.80MB/s]

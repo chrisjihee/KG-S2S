@@ -105,6 +105,7 @@ def main():
         accelerator=configs.accelerator,
         max_epochs=configs.epochs,
         check_val_every_n_epoch=configs.check_every_n_epochs,
+        accumulate_grad_batches=configs.grad_accumulate,
         num_sanity_val_steps=0,
         enable_progress_bar=True,
         logger=False,
@@ -148,6 +149,7 @@ if __name__ == '__main__':
     parser.add_argument('-pretrained_model', type=str, default='t5-base', help='')
     parser.add_argument('-batch_size', default=8, type=int, help='Batch size')
     parser.add_argument('-val_batch_size', default=4, type=int, help='Batch size')
+    parser.add_argument('-grad_accumulate', default=1, type=int, help='Accumulates grads every k batches')
     parser.add_argument('-num_beams', default=40, type=int, help='Number of samples from beam search')
     parser.add_argument('-num_beam_groups', default=1, type=int, help='')
     parser.add_argument('-src_max_length', default=512, type=int, help='')
